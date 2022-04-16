@@ -8,7 +8,10 @@ const routes: Routes = [
 {path : 'login', component : LoginComponent},
 {path : 'createAccount', component : CreateAccountComponent},
 {path:"practice", component:TypingComponent}
+<<<<<<< HEAD
 
+=======
+>>>>>>> ee4bbb269e2697af51d7feafa164ee9b7506f007
 ];
 
 @NgModule({
