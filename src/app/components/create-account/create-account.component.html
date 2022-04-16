@@ -1,0 +1,19 @@
+<p>welcome to Register Page</p>
+
+<fieldset>
+<div class = "register-form">
+<form>
+  new id  <input type = "text" placeholder="id"><br>
+  user password  <input tpye = "password" placeholder ="password"><br>
+  confirm Password  <input tpye = "password" placeholder ="password">
+   <br> <button (click)="addUser({userId : 'julie', userPassword : 'pw1234'})">submit</button>
+ 
+</form>
+</div>
+</fieldset>
+
+<p *ngFor = 'let c of userList'>
+{{c.userId + c.userPassword}}
+
+
+</p>
