@@ -9,11 +9,11 @@ export class LoginComponent implements OnInit {
 
 
 
+
+
  greetUser(){
    alert ('Welcome to Typing Competiton')
  } 
-
-
 
   constructor() { }
 

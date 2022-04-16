@@ -1,3 +1,10 @@
+
+
 fieldset {
     background-color :aquamarine ;
 }
+.login-button{
+    border-radius: 20px;
+    background-image: linear-gradient(rgb(69, 102, 212) 0%, rgb(255, 193, 19) 33%, rgb(6, 255, 214) 100%);
+}
+

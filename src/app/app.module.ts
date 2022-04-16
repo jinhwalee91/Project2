@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { HttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { CreateAccountComponent } from './components/create-account/create-accou
   ],
 
 
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
