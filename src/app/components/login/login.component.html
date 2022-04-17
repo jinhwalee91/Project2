@@ -9,9 +9,11 @@
     <button (click)="greetUser()" class ='login-button'> Login </button>
     <ul>
     <li> <a href = '#'> find my ID / PW</a> </li>
-    <li><a href = '#'> Make new Account </a> </li>
+    <li><a routerLink="createAccount" > Make new Account </a> </li>
     </ul>
 </form>
 </div>
 </fieldset>
 
+
+<router-outlet></router-outlet>

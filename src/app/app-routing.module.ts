@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { TypingComponent } from './components/typing/typing.component';
 
 const routes: Routes = [
-{path : 'login', component : LoginComponent},
+{path : '' , component: HomeComponent},
+{path:"home", component:HomeComponent},
+{path : 'login', component : LoginComponent, children: [
+  {path : 'createAccount', component : CreateAccountComponent}
+]},
 {path : 'createAccount', component : CreateAccountComponent},
-{path:"practice", component:TypingComponent}
-<<<<<<< HEAD
+{path:"practice", component:TypingComponent},
 
-=======
->>>>>>> ee4bbb269e2697af51d7feafa164ee9b7506f007
+
 ];
 
 @NgModule({
