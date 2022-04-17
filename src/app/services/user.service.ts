@@ -1,11 +1,19 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+newUserUrl : string = '/create-account';
+loginUrl : string = '/login';
 
-  constructor() { }
+
+  constructor(_http : HttpClient) { }
+
+
+
+
 }
 
 

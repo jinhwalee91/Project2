@@ -22,7 +22,7 @@ import { HomeComponent } from './components/home/home.component';
   ],
 
 
-  providers: [HttpClient],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
