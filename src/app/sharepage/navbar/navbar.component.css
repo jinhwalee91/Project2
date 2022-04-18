@@ -1,7 +1,8 @@
-.active-link
+.active-link 
 {
     
     font-weight: bold;
+    color : var(--primary-color);
   
 }
 
