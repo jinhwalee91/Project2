@@ -7,6 +7,8 @@ import { LoginComponent } from './components/login/login.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
 import { HttpClient } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
+import { NavbarComponent } from './sharepage/navbar/navbar.component';
+import { FooterComponent } from './sharepage/footer/footer.component';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { HomeComponent } from './components/home/home.component';
     AppComponent,
     LoginComponent,
     CreateAccountComponent,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
