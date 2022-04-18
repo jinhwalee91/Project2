@@ -1,0 +1,7 @@
+R:\RevatureProjects\Project2Forked\.NetFolder\Project2.NetApp\Project2.NetSide\obj\Debug\net6.0\Project2.NetSide.csproj.AssemblyReference.cache
+R:\RevatureProjects\Project2Forked\.NetFolder\Project2.NetApp\Project2.NetSide\obj\Debug\net6.0\Project2.NetSide.GeneratedMSBuildEditorConfig.editorconfig
+R:\RevatureProjects\Project2Forked\.NetFolder\Project2.NetApp\Project2.NetSide\obj\Debug\net6.0\Project2.NetSide.AssemblyInfoInputs.cache
+R:\RevatureProjects\Project2Forked\.NetFolder\Project2.NetApp\Project2.NetSide\obj\Debug\net6.0\Project2.NetSide.AssemblyInfo.cs
+R:\RevatureProjects\Project2Forked\.NetFolder\Project2.NetApp\Project2.NetSide\obj\Debug\net6.0\Project2.NetSide.csproj.CoreCompileInputs.cache
+R:\RevatureProjects\Project2Forked\.NetFolder\Project2.NetApp\Project2.NetSide\obj\Debug\net6.0\Project2.NetSide.MvcApplicationPartsAssemblyInfo.cs
+R:\RevatureProjects\Project2Forked\.NetFolder\Project2.NetApp\Project2.NetSide\obj\Debug\net6.0\Project2.NetSide.MvcApplicationPartsAssemblyInfo.cache
