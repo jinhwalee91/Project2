@@ -1,21 +1,22 @@
 
-<p>welcome to login page</p>
+<h1>welcome to login page</h1>
 
-<fieldset>
-<div class = "login-form">
-<form>
-  Id  <input type = "text" placeholder="id" >
-  PW  <input tpye = "password" placeholder ="password">
-    <button (click)="greetUser()"> Login </button>
+<div id="login-container">
+
+  <div>
+    <label for="firstName">E-mail</label>
+    <input type="email" placeholder="Enter your e-mail"  >
+    <label for="firstName">Password</label>
+    <input type="password" placeholder="Enter your password">
+
+    <button (click)="greetUser()" class ='login-button'> Login </button>
+    
     <ul>
-    <li> <a href = '#'> find my ID / PW</a> </li>
-    <li><a href = '#'> Make new Account </a> </li>
+    <li> <a href = '#'> find my password using email</a> </li>
+    <li><a routerLink="createAccount" > Make new Account </a> </li>
     </ul>
-</form>
-</div>
-</fieldset>
 
 
 
 
-
+<router-outlet></router-outlet>

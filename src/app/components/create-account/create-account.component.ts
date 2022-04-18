@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class CreateAccountComponent implements OnInit {
 
 userList = [
-{userId : 'julie', userPassword : 'pw1234'},
-{userId : 'Mike', userPassword : 'pw1234'}
+{userEmail : 'julie', userPassword : 'pw1234'},
+{userEmail : 'Mike', userPassword : 'pw1234'}
 ]
 
 addUser(newUser : any){

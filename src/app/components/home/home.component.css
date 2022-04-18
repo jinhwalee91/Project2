@@ -1,0 +1,33 @@
+.banner {
+    background-image: url('../../../assets/img/typing.jpg');
+    height : 600px;
+    background-position: center top;
+    background-size: cover;
+}
+
+.banner h1 {
+    color: white;
+    font-size: 70px;
+    font-weight: bold;
+ 
+    
+}
+
+.content{
+    top : 30%;
+    left: 30%;
+    position: absolute;
+}
+
+.content a {
+    text-decoration: none;
+    background-color: aliceblue;
+    color : var (--primary-color);
+    padding : 20px, 20px;
+    margin-top : 20px;
+}
+
+.content a:hover {
+    background-color: var(--primary-color);
+    color : white;
+}
