@@ -12,8 +12,6 @@ loginUrl : string = '/login';
   constructor(_http : HttpClient) { }
 
 
-
-
 }
 
 
