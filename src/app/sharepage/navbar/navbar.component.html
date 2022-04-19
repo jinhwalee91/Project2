@@ -11,12 +11,28 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact : true}">Home</a>
           </li>
+
+          <!-- TO DO: -->
+          <!--
+            Make it so that these list items are mutually exclusive
+            ie, if the user is logged in, show only 'userProfile'
+            and, if the user is not logged in, show 'login' and 'createAccount'
+          -->
+
           <li class="nav-item">
             <a class="nav-link" routerLink="login" routerLinkActive="active-link">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="createAccount" routerLinkActive="active-link">createAccount</a>
+            <a class="nav-link" routerLink="createAccount" routerLinkActive="active-link">Create an Account</a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="userProfile" routerLinkActive="active-link">My Profile</a>
+          </li>
+
+          <!-- TO DO: see above -->
+
+
           <li class="nav-item">
             <a class="nav-link" routerLink="practice" routerLinkActive="active-link">Practice</a>
           </li>

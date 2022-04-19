@@ -9,7 +9,7 @@ export class LeaderboardComponent implements OnInit {
 
   constructor() { }
 
-  // to do: http request to GET liste of users with top five ELOrank scores, in order of ELOrank
+  // to do: http request to GET a list of users with top five ELOrank scores, in order of ELOrank
 
   leaderboardList = [
     { userName: 'Juliet', ELOrank: '2,119', WPM: '91' },

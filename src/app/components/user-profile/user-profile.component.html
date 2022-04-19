@@ -1,0 +1,96 @@
+
+
+<img src="{{userProfileInfoList[0].avatarLink}}" alt="Your Profile Photo" class="profilePic">
+
+<!-- to do: function to sort letter skill matrix by keyboard layout, for proper display of DVORAK et al -->
+<div id="keyboardContainer">
+  <table>
+    <tr>
+      <td>Q</td>
+      <td>W</td>
+      <td>E</td>
+      <td>R</td>
+      <td>T</td>
+      <td>Y</td>
+      <td>U</td>
+      <td>I</td>
+      <td>O</td>
+      <td>P</td>
+    </tr>
+    <tr>
+      <td class="scores">{{userLetterSkillMatrix[0].Q}}</td>
+      <td class="scores">{{userLetterSkillMatrix[0].W}}</td>
+      <td class="scores">{{userLetterSkillMatrix[0].E}}</td>
+      <td class="scores">{{userLetterSkillMatrix[0].R}}</td>
+      <td class="scores">{{userLetterSkillMatrix[0].T}}</td>
+      <td class="scores">{{userLetterSkillMatrix[0].Y}}</td>
+      <td class="scores">{{userLetterSkillMatrix[0].U}}</td>
+      <td class="scores">{{userLetterSkillMatrix[0].I}}</td>
+      <td class="scores">{{userLetterSkillMatrix[0].O}}</td>
+      <td class="scores">{{userLetterSkillMatrix[0].P}}</td>
+    </tr>
+    <tr>
+      <td class="rightSkew1">A</td>
+      <td class="rightSkew1">S</td>
+      <td class="rightSkew1">D</td>
+      <td class="rightSkew1">F</td>
+      <td class="rightSkew1">G</td>
+      <td class="rightSkew1">H</td>
+      <td class="rightSkew1">J</td>
+      <td class="rightSkew1">K</td>
+      <td class="rightSkew1">L</td>
+    </tr>
+    <tr>
+      <td class="scores1">{{userLetterSkillMatrix[0].A}}</td>
+      <td class="scores1">{{userLetterSkillMatrix[0].S}}</td>
+      <td class="scores1">{{userLetterSkillMatrix[0].D}}</td>
+      <td class="scores1">{{userLetterSkillMatrix[0].F}}</td>
+      <td class="scores1">{{userLetterSkillMatrix[0].G}}</td>
+      <td class="scores1">{{userLetterSkillMatrix[0].H}}</td>
+      <td class="scores1">{{userLetterSkillMatrix[0].J}}</td>
+      <td class="scores1">{{userLetterSkillMatrix[0].K}}</td>
+      <td class="scores1">{{userLetterSkillMatrix[0].L}}</td>
+    </tr>
+    <tr>
+      <td class="rightSkew2">Z</td>
+      <td class="rightSkew2">X</td>
+      <td class="rightSkew2">C</td>
+      <td class="rightSkew2">V</td>
+      <td class="rightSkew2">B</td>
+      <td class="rightSkew2">N</td>
+      <td class="rightSkew2">M</td>
+    </tr>
+    <tr>
+      <td class="scores2">{{userLetterSkillMatrix[0].Z}}</td>
+      <td class="scores2">{{userLetterSkillMatrix[0].X}}</td>
+      <td class="scores2">{{userLetterSkillMatrix[0].C}}</td>
+      <td class="scores2">{{userLetterSkillMatrix[0].V}}</td>
+      <td class="scores2">{{userLetterSkillMatrix[0].B}}</td>
+      <td class="scores2">{{userLetterSkillMatrix[0].N}}</td>
+      <td class="scores2">{{userLetterSkillMatrix[0].M}}</td>
+    </tr>
+  </table>
+
+
+</div>
+<div class="myInfo">
+  <h1>{{userProfileInfoList[0].userName}}</h1>
+  <p>
+    ELO Rank: {{userProfileInfoList[0].ELOrank}}
+    <br />
+    Words per Minute: {{userProfileInfoList[0].WPM}}
+    <br />
+    Keyboard Layout: {{userProfileInfoList[0].keyboardLayout}}
+  </p>
+</div>
+
+
+
+
+
+
+
+
+
+
+

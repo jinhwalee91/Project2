@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './sharepage/navbar/navbar.component';
 import { FooterComponent } from './sharepage/footer/footer.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { LeaderboardComponent } from './components/leaderboard/leaderboard.compo
     HomeComponent,
     NavbarComponent,
     FooterComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
