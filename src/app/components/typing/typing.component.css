@@ -1,0 +1,15 @@
+/* span:nth-child(indexPointer) {
+    color: green;
+}
+
+span:nth-child(indexPointer) {
+    color: red;
+} */
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
