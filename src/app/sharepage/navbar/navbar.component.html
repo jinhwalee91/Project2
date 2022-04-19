@@ -1,51 +1,52 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" routerLink="">TopTyper</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact : true}">Home</a>
-          </li>
+  <div class="container-fluid">
+    <!-- <a class="navbar-brand" routerLink="">TopTyper</a> -->
+    <img src="../../../assets/img/TopTyperLogo.png" alt="Top Typer" class="navbar-brand" routerLink="">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact : true}">Home</a>
+        </li>
 
-          <!-- TO DO: -->
-          <!--
-            Make it so that these list items are mutually exclusive
-            ie, if the user is logged in, show only 'userProfile'
-            and, if the user is not logged in, show 'login' and 'createAccount'
-          -->
+        <!-- TO DO: -->
+        <!--
+        Make it so that these list items are mutually exclusive
+        ie, if the user is logged in, show only 'userProfile'
+        and, if the user is not logged in, show 'login' and 'createAccount'
+      -->
 
-          <li class="nav-item">
-            <a class="nav-link" routerLink="login" routerLinkActive="active-link">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="createAccount" routerLinkActive="active-link">Create an Account</a>
-          </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="login" routerLinkActive="active-link">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="createAccount" routerLinkActive="active-link">Create an Account</a>
+        </li>
 
-          <li class="nav-item">
-            <a class="nav-link" routerLink="userProfile" routerLinkActive="active-link">My Profile</a>
-          </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="userProfile" routerLinkActive="active-link">My Profile</a>
+        </li>
 
-          <!-- TO DO: see above -->
-
-
-          <li class="nav-item">
-            <a class="nav-link" routerLink="practice" routerLinkActive="active-link">Practice</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="leaderboard" routerLinkActive="active-link">Leaderboard</a>
-          </li>
+        <!-- TO DO: see above -->
 
 
-        </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="practice" routerLinkActive="active-link">Practice</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="leaderboard" routerLinkActive="active-link">Leaderboard</a>
+        </li>
+
+
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
     </div>
+  </div>
   </nav>
