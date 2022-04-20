@@ -16,7 +16,11 @@ export class TypingComponent implements OnInit
   inputText = "";
   indexPointer = 0;
   textStyleClass = 'correct';
+  wpm = 0;
+  mistypeCounter = 0;
 
+  time = 5;
+  timerDisplay = true;
 
   constructor() { }
 
@@ -26,33 +30,48 @@ export class TypingComponent implements OnInit
     {
       this.textHTMLContainer += "<span class=" + "character" + i + ">" + this.sampleText[i] + "</span>";    // super messy, but it'll have to do for now
     }
+
+    setInterval(() => {
+      this.time--;
+    }, 1000)
+
+    // call the timeUp function after the timer has reached 0
+    setInterval(() => {
+      this.timeUp()
+    }, this.time * 1000)
   }
+
+
 
   @HostListener('window:keyup', ['$event'])
   getKeyPressed(event:KeyboardEvent)
   {
-    // var outputParagraph = <HTMLElement>document.querySelector("#output");
-    // var children = outputParagraph.children;
-    // console.log(children[this.indexPointer]);
-
-    // prevent special keys (shift, enter, alt, etc) from doing anything
-    if (event.key != "Enter" && event.key != "Backspace" && event.key != "Shift" && event.key != "CapsLock" && event.key != "Alt" && event.key != "Escape" && event.key != "Control"
-        && event.key != "OS" && event.key != "Tab")
+    // only allow key pressed within the time limit
+    if (this.timerDisplay == true)
     {
-      this.checkKey(event, this.indexPointer)
-      //children[this.indexPointer].className = this.textStyleClass;
-      this.inputText += event.key;
-      this.indexPointer++;   // move the pointer for every key pressed
-    }
-    if (event.key == "Backspace")
-    {
-      // remove last character
-      this.inputText = this.inputText.slice(0,-1);
+      // var outputParagraph = <HTMLElement>document.querySelector("#output");
+      // var children = outputParagraph.children;
+      // console.log(children[this.indexPointer]);
 
-      // move pointer back when backspace is pressed, but make sure not to go negative
-      if (this.indexPointer > 0)
+      // prevent special keys (shift, enter, alt, etc) from doing anything
+      if (event.key != "Enter" && event.key != "Backspace" && event.key != "Shift" && event.key != "CapsLock" && event.key != "Alt" && event.key != "Escape" && event.key != "Control"
+          && event.key != "OS" && event.key != "Tab")
       {
-        this.indexPointer --;
+        this.checkKey(event, this.indexPointer)
+        //children[this.indexPointer].className = this.textStyleClass;
+        this.inputText += event.key;
+        this.indexPointer++;   // move the pointer for every key pressed
+      }
+      if (event.key == "Backspace")
+      {
+        // remove last character
+        this.inputText = this.inputText.slice(0,-1);
+
+        // move pointer back when backspace is pressed, but make sure not to go negative
+        if (this.indexPointer > 0)
+        {
+          this.indexPointer --;
+        }
       }
     }
   }
@@ -67,7 +86,18 @@ export class TypingComponent implements OnInit
     else
     {
       this.textStyleClass = 'incorrect';
+      this.mistypeCounter++;
     }
+  }
+
+  // do things here that need to happen after the timer runs out
+  // like calculating wpm, mistypes, score, etc
+  timeUp()
+  {
+    this.timerDisplay = false;
+    this.wpm = this.inputText.split(" ").length;
+    console.log("wpm is: " + this.wpm);
+    console.log("mistypes: " + this.mistypeCounter);
   }
     
 
