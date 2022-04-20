@@ -1,6 +1,21 @@
 <!-- keypress (unlike keyup) doesn't get special keys like capslock, backspace, etc, but it does get enter, so at least that's all i'll have to handle -->
-<input (keypress)="getKeyPressed($event)">  
 
-<p id="output">
-<!-- here we'd want the sample text the user is trying to type -->
+<p>
+    <!-- here we'd want the sample text the user is trying to type -->
+    {{inputText}}
 </p>
+
+<p>
+    <span id="output" [innerHTML]="textHTMLContainer"></span>
+</p>
+
+<p>
+    <span id="test"></span>
+    {{indexPointer}}
+    {{sampleText[indexPointer]}}
+</p>
+
+<div id="timer" *ngIf="timerDisplay">{{time}}</div>
+
+
+<div [ngClass]="textStyleClass">testtestesttesttest</div>

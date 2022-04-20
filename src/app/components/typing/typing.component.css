@@ -1,0 +1,7 @@
+::ng-deep .correct {
+    color: green;
+}
+
+::ng-deep .incorrect {
+    color: red;
+}
