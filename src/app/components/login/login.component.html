@@ -1,23 +1,47 @@
 
 <h1>welcome to login page</h1>
 
-<div id="login-container">
+<div id = "login-container">
+<h2 id="header"> Log in Here ! </h2>
 
+  <!-- Old version 
 
   <div>
-    <label for="firstName">E-mail</label>
-    <input type="email" placeholder="Enter your e-mail"  >
+    <label for="validationDefault01" >E-mail</label>
+    <input type="email" placeholder="Enter your e-mail"  required>
     <label for="firstName">Password</label>
-    <input type="password" placeholder="Enter your password">
+    <input type="password" placeholder="Enter your password" required>
 
-    <button (click)="greetUser()" class ='login-button'> Login </button>
+    <button class ='login-button'> Login </button>
     
     <ul>
     <li> <a href = '#'> find my password using email</a> </li>
     <li><a routerLink="createAccount" > Make new Account </a> </li>
     </ul>
-</div>
 
+    -->
+
+    <div class="col-md-4">
+      <label for="validationDefault01" class="form-label">E-mail</label>
+      <input type="text" class="form-control" id="validationDefault01"  required>
+    </div>
+   
+    <div class="col-md-4">
+      <label for="validationDefault02" class="form-label">Password</label>
+      <input type="password" class="form-control" id="validationDefault02" required>
+    </div>
+
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit">Login</button>
+    </div>
+
+
+    <ul>
+      <li> <a href = '#'> find my password using email</a> </li>
+      <li><a routerLink="createAccount" > Make new Account </a> </li>
+      </ul>
+
+</div>
 
 
 
