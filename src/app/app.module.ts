@@ -20,7 +20,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
-    TypingComponent
+    TypingComponent,
     LoginComponent,
     CreateAccountComponent,
     HomeComponent,
@@ -33,7 +33,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    FormsModule
+    FormsModule,
     NgbModule,
     HttpClientModule,
     CommonModule,
