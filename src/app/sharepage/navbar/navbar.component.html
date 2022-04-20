@@ -20,6 +20,14 @@
         and, if the user is not logged in, show 'login' and 'createAccount'
       -->
 
+      <li class="nav-item">
+        <a class="nav-link" routerLink="'.'" routerLinkActive="active-link" (click)="isMenuCollapsed = true" *ngIf="signedIn$ | async">Sing Out</a>
+      </li>
+
+      <!-- above  *ngIf="signedIn$ | async" is added for making sign out sign disappeared when it's not logged in-->
+
+      <ng-container *ngIf="!(signedIn$ | async)">   <!-- this line added for showing below menu when it's not logged in-->
+
         <li class="nav-item">
           <a class="nav-link" routerLink="login" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Login</a>
         </li>
@@ -31,6 +39,8 @@
           <a class="nav-link" routerLink="userProfile" routerLinkActive="active-link" (click)="isMenuCollapsed = true">My Profile</a>
         </li>
 
+        </ng-container>  <!-- this line added for above reason -->
+         
         <!-- TO DO: see above -->
 
 
