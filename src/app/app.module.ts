@@ -13,6 +13,9 @@ import { FooterComponent } from './sharepage/footer/footer.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { loginService } from './services/login.service.ts';
+import { ViewloginComponent } from './components/ViewLogin/viewlogin/viewlogin.component';
+import { ViewLoginComponent } from './components/view-login/view-login.component';
 
 
 @NgModule({
@@ -24,7 +27,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NavbarComponent,
     FooterComponent,
     LeaderboardComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ViewloginComponent,
+    ViewLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
 
 
-  providers: [],
+  providers: [loginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
