@@ -1,12 +1,14 @@
 import { keyframes } from '@angular/animations';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { NONE_TYPE, ViewEncapsulation } from '@angular/compiler';
+import { Component, ElementRef, HostListener, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import { sample } from 'rxjs';
 
 @Component({
   selector: 'app-typing',
   templateUrl: './typing.component.html',
-  styleUrls: ['./typing.component.css']
+  styleUrls: ['./typing.component.css'],
 })
+
 export class TypingComponent implements OnInit 
 {
 
@@ -15,12 +17,14 @@ export class TypingComponent implements OnInit
   textHTMLContainer = "";
   inputText = "";
   indexPointer = 0;
-  textStyleClass = 'correct';
+  textStyleClass = "correct";
   wpm = 0;
   mistypeCounter = 0;
 
-  time = 5;
+  time = 600;
   timerDisplay = true;
+
+  children = [];
 
   constructor() { }
 
@@ -28,7 +32,7 @@ export class TypingComponent implements OnInit
   {
     for(let i = 0; i < this.sampleText.length; i++)
     {
-      this.textHTMLContainer += "<span class=" + "character" + i + ">" + this.sampleText[i] + "</span>";    // super messy, but it'll have to do for now
+      this.textHTMLContainer += "<span [ngClass]=" + this.textStyleClass + ">" + this.sampleText[i] + "</span>";
     }
 
     setInterval(() => {
@@ -37,11 +41,12 @@ export class TypingComponent implements OnInit
 
     // call the timeUp function after the timer has reached 0
     setInterval(() => {
-      this.timeUp()
-    }, this.time * 1000)
+      if (this.timerDisplay == true)
+      {
+        this.timeUp()
+      }
+    }, (this.time + 1) * 1000)
   }
-
-
 
   @HostListener('window:keyup', ['$event'])
   getKeyPressed(event:KeyboardEvent)
@@ -49,16 +54,19 @@ export class TypingComponent implements OnInit
     // only allow key pressed within the time limit
     if (this.timerDisplay == true)
     {
-      // var outputParagraph = <HTMLElement>document.querySelector("#output");
-      // var children = outputParagraph.children;
-      // console.log(children[this.indexPointer]);
+      // get the container for all the text
+      var outputParagraph = <HTMLElement>document.querySelector("#output");
+      // and then get its children (every letter separated in their own tags)
+      var children = outputParagraph.children;
 
       // prevent special keys (shift, enter, alt, etc) from doing anything
       if (event.key != "Enter" && event.key != "Backspace" && event.key != "Shift" && event.key != "CapsLock" && event.key != "Alt" && event.key != "Escape" && event.key != "Control"
           && event.key != "OS" && event.key != "Tab")
       {
         this.checkKey(event, this.indexPointer)
-        //children[this.indexPointer].className = this.textStyleClass;
+
+        children[this.indexPointer].className = this.textStyleClass;
+        
         this.inputText += event.key;
         this.indexPointer++;   // move the pointer for every key pressed
       }

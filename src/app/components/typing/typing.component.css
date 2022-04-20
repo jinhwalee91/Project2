@@ -1,15 +1,7 @@
-/* span:nth-child(indexPointer) {
+::ng-deep .correct {
     color: green;
 }
 
-span:nth-child(indexPointer) {
-    color: red;
-} */
-
-.correct {
-    color: green;
-}
-
-.incorrect {
+::ng-deep .incorrect {
     color: red;
 }
