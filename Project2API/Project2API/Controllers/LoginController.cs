@@ -18,5 +18,32 @@ namespace Project2API.Controllers
                           select e;
             return Ok(empList);
         }
+
+        [HttpGet]
+        [Route("Login By Email")]
+        public IActionResult GetEmployeeById(string email)
+        {
+
+
+            try
+            {
+                var emp = (from e in dbContext.LoginTables
+                           where e.Email == email
+                           select e).SingleOrDefault();
+
+                if (emp != null)
+                {
+                    return Ok(emp);
+                }
+                else
+                {
+                    return NotFound("Email Not found in system");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
