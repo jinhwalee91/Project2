@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { TypingComponent } from './components/typing/typing.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
 {path : '' , component: HomeComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
 {path : 'createAccount', component : CreateAccountComponent},
   { path: "practice", component: TypingComponent },
   { path: "leaderboard", component: LeaderboardComponent },
-  { path: "userProfile", component: UserProfileComponent }
+  { path: "userProfile", component: UserProfileComponent },
+  { path: "admin", component: AdminComponent }
 
 
 ];
