@@ -1,21 +1,9 @@
-<!-- keypress (unlike keyup) doesn't get special keys like capslock, backspace, etc, but it does get enter, so at least that's all i'll have to handle -->
-
-<p>
-    <!-- here we'd want the sample text the user is trying to type -->
-    {{inputText}}
-</p>
-
 <p>
     <span id="output" [innerHTML]="textHTMLContainer"></span>
 </p>
 
-<p>
-    <span id="test"></span>
-    {{indexPointer}}
-    {{sampleText[indexPointer]}}
-</p>
-
-<div id="timer" *ngIf="timerDisplay">{{time}}</div>
-
-
-<div [ngClass]="textStyleClass">testtestesttesttest</div>
+<div id="timer" *ngIf="timerDisplay">Time left: {{time}}</div>
+<div id="finished" *ngIf="!timerDisplay">
+    <div>Words Per Minute: {{wpm}}</div>
+    <div>Mistakes: {{mistypeCounter}}</div>
+</div>

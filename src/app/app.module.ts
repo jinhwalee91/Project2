@@ -18,6 +18,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
+    TypingComponent,
     LoginComponent,
     CreateAccountComponent,
     HomeComponent,
@@ -30,7 +31,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+    FormsModule
   ],
 
 
