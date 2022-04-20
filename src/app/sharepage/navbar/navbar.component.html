@@ -4,13 +4,13 @@
   <div class="container-fluid">
     <!-- <a class="navbar-brand" routerLink="">TopTyper</a> -->
     <img src="../../../assets/img/TopTyperLogo.png" alt="Top Typer" class="navbar-brand" routerLink="">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact : true}">Home</a>
+          <a class="nav-link" routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact : true}" (click)="isMenuCollapsed = true">Home</a>
         </li>
 
         <!-- TO DO: -->
@@ -21,30 +21,30 @@
       -->
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="login" routerLinkActive="active-link">Login</a>
+          <a class="nav-link" routerLink="login" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="createAccount" routerLinkActive="active-link">Create an Account</a>
+          <a class="nav-link" routerLink="createAccount" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Create an Account</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="userProfile" routerLinkActive="active-link">My Profile</a>
+          <a class="nav-link" routerLink="userProfile" routerLinkActive="active-link" (click)="isMenuCollapsed = true">My Profile</a>
         </li>
 
         <!-- TO DO: see above -->
 
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="practice" routerLinkActive="active-link">Practice</a>
+          <a class="nav-link" routerLink="practice" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Practice</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="leaderboard" routerLinkActive="active-link">Leaderboard</a>
+          <a class="nav-link" routerLink="leaderboard" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Leaderboard</a>
         </li>
 
 
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" (click)="isMenuCollapsed = true">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
