@@ -9,21 +9,19 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-loginUser(item : any){
+_userLogin : AuthService ;
+ loginUser : any ;
 
-console.warn (item);
-
-}
-
-
- _login : AuthService
- userDetail : any ; 
-
-  constructor(_loginRef : AuthService) {
-
-    this._login = _loginRef;
-
+  constructor(_userLoginRef : AuthService) {
+    this._userLogin = _userLoginRef
     };
+
+    userLogin(email : any , password : any) {
+      this._userLogin.userLogin(email,password).subscribe(
+        (data) => {this.loginUser = data ; console.log(this.loginUser)}
+      )
+  }
+    
 
 
 

@@ -7,13 +7,40 @@
 #login-container  {
     margin-top: 50px;
     padding: 40px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.699);
     margin-bottom: 50px;
+    align-content: center;
     border-radius: 5px;
     border: 2px solid ;
-    
+
 }
 
 h1{
     text-align: center;
+    font-family: Oleo;
 }
+
+.banner {
+    background-image: url('../../../assets/img/typing.jpg');
+    height : 600px;
+    background-position: center bottom;
+    background-size: cover;
+    
+}
+
+@font-face {
+    font-family : Oleo;
+    src : url(../../../assets/font/PermanentMarker-Regular.ttf) format('truetype');
+}
+
+.Oleo {
+    font-family: Oleo;
+}
+
+
+ul.no-bullets {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+  }
+

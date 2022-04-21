@@ -1,13 +1,11 @@
-<h1>Welcome to Register Page</h1>
 
-<div class="container text-center" id="registrationContainer">
-
-  <h2 id="registrationHeader"> Create an account </h2>
-
+<div class = "banner">
   
- 
+  <h1 id="registrationHeader"> Create an account </h1>
+  <div class="container text-center" id="registrationContainer">
   <form  class="row g-3" >
     <div class="col-md-3">
+      
       <label for="validationDefault01" class="form-label">First name</label>
       <input type="text" class="form-control" >
     </div>
@@ -53,12 +51,12 @@
       </div>
     </div>
     <div class="col-12">
-      <button class="btn btn-primary" type="submit">Submit form</button>
+      <button class="btn btn-primary" type="submit" (click)="registerUser(regUser)" >Submit form</button>
     </div>
   </form>
 
 </div>
-
+</div>
 
 
 
