@@ -45,5 +45,32 @@ namespace Project2API.Controllers
                 throw new Exception(ex.Message);
             }
         }
+
+        [HttpGet]
+        [Route("CheckLogin")]
+        public IActionResult GetLoginByEmailPassword(string email, string password)
+        {
+
+            try
+            {
+                var login = (from l in dbContext.LoginTables where l.Email == email && l.AccountPassword == password select l).SingleOrDefault();
+
+                if (login != null)
+                {
+                    return Ok("Login Found");
+                }
+                else
+                {
+                    return NotFound("Login Incorrect");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+
     }
+
 }

@@ -17,6 +17,7 @@ namespace Project2API.Models.EF
         }
 
         public virtual DbSet<LoginTable> LoginTables { get; set; } = null!;
+        public virtual DbSet<UserProfile> UserProfiles { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -59,10 +60,43 @@ namespace Project2API.Models.EF
                     .HasColumnName("gender")
                     .HasDefaultValueSql("('Unknown')");
 
+                entity.Property(e => e.IsAdmin)
+                    .HasColumnName("isAdmin")
+                    .HasDefaultValueSql("((0))");
+
                 entity.Property(e => e.LastName)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("lastName");
+            });
+
+            modelBuilder.Entity<UserProfile>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("userProfile");
+
+                entity.Property(e => e.AccountId).HasColumnName("accountId");
+
+                entity.Property(e => e.AvatarLink)
+                    .HasMaxLength(150)
+                    .IsUnicode(false)
+                    .HasColumnName("avatarLink");
+
+                entity.Property(e => e.KeyboardLayout)
+                    .HasMaxLength(15)
+                    .IsUnicode(false)
+                    .HasColumnName("keyboardLayout");
+
+                entity.Property(e => e.UserElo).HasColumnName("UserELO");
+
+                entity.Property(e => e.Wpm).HasColumnName("WPM");
+
+                entity.HasOne(d => d.Account)
+                    .WithMany()
+                    .HasForeignKey(d => d.AccountId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__userProfi__accou__6383C8BA");
             });
 
             OnModelCreatingPartial(modelBuilder);
