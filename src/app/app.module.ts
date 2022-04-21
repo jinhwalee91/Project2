@@ -14,6 +14,8 @@ import { LeaderboardComponent } from './components/leaderboard/leaderboard.compo
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TypingComponent } from './components/typing/typing.component';
+import { LoginService } from './services/login.service';
+import { ViewLoginComponent } from './components/view-login/view-login.component';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { TypingComponent } from './components/typing/typing.component';
     NavbarComponent,
     FooterComponent,
     LeaderboardComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ViewLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import { TypingComponent } from './components/typing/typing.component';
   ],
 
 
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

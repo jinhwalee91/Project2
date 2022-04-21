@@ -9,6 +9,7 @@ import { TypingComponent } from './components/typing/typing.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { ViewLoginComponent } from  './components/view-login/view-login.component';
 
 const routes: Routes = [
 {path : '' , component: HomeComponent},
@@ -20,8 +21,8 @@ const routes: Routes = [
   { path: "practice", component: TypingComponent },
   { path: "leaderboard", component: LeaderboardComponent },
   { path: "userProfile", component: UserProfileComponent },
-  { path: "admin", component: AdminComponent }
-
+  { path: "admin", component: AdminComponent },
+  { path: "ViewLogin", component: ViewLoginComponent}
 
 ];
 
