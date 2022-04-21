@@ -46,16 +46,18 @@ namespace Project2API.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("CheckLogin")]
+        [HttpPost]
+        [Route("Login")]
         public IActionResult GetLoginByEmailPassword(string email, string password)
         {
 
             try
             {
-                var login = (from l in dbContext.LoginTables where l.Email == email && l.AccountPassword == password select l).SingleOrDefault();
 
-                if (login != null)
+                //@ApiModelProperty(hidden = "true");
+                //var login = (from l in dbContext.LoginTables where l.Email == email && l.AccountPassword == password select l).SingleOrDefault();
+                int credential = (from z in dbContext.LoginTables where z.Email == email && z.AccountPassword == password select z).Count();
+                if (credential == 1)
                 {
                     return Ok("Login Found");
                 }
@@ -71,6 +73,64 @@ namespace Project2API.Controllers
 
         }
 
+
+        //[HttpPut]
+        //[Route("ChangeName")]
+        //public IActionResult ChangeName(LoginTable newName)
+        //{
+        //    try
+        //    {
+        //        var account = (from a in dbContext.LoginTables
+        //                       where a.Email == newName.Email
+        //                       select a).SingleOrDefault();
+                               
+        //        if(account != null)
+        //        {
+        //            account.FirstName = newName.FirstName;
+        //            account.LastName = newName.LastName;
+        //            dbContext.SaveChanges();
+        //            return Ok("Updated Name");
+        //        }
+        //        else
+        //        {
+        //            return Ok("Not Found / Error"); 
+        //        }
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        throw new Exception(ex.Message);
+        //    }
+
+        //}
+
+        [HttpPut]
+        [Route("ChangeName")]
+        public IActionResult ChangeName(string email, string newFirstName, string newLastName)
+        {
+            try
+            {
+                var account = (from a in dbContext.LoginTables
+                               where a.Email == email
+                               select a).SingleOrDefault();
+
+                if (account != null)
+                {
+                    account.FirstName = newFirstName;
+                    account.LastName = newLastName;
+                    dbContext.SaveChanges();
+                    return Ok("Updated Name");
+                }
+                else
+                {
+                    return Ok("Not Found / Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
     }
 
 }
