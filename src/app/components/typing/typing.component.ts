@@ -21,7 +21,7 @@ export class TypingComponent implements OnInit
   wpm = 0;
   mistypeCounter = 0;
 
-  time = 600;
+  time = 60;
   timerDisplay = true;
 
   children = [];

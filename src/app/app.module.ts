@@ -19,6 +19,7 @@ import { AdminGuardService } from './services/admin-guard.service';
 @NgModule({
   declarations: [
     AppComponent,
+    TypingComponent,
     LoginComponent,
     CreateAccountComponent,
     HomeComponent,
@@ -31,7 +32,9 @@ import { AdminGuardService } from './services/admin-guard.service';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+    FormsModule
   ],
 
 
