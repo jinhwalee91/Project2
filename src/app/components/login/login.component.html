@@ -11,18 +11,18 @@
 
     <div class="col-md-15">
       <label for="validationDefault01" class="form-label" >E-mail</label>
-      <input type="text" required #name = "ngModel" name ="email" placeholder ="Enter E-mail" class="form-control" ngModel>
+      <input type="text" required #name = "ngModel" name ="email" placeholder ="Enter E-mail"  #useremail class="form-control" ngModel>
       <span *ngIf = "name.invalid && name.touched" style="color : red" > Please enter valid e-mail </span> 
     </div>
     <br>
     <div class="col-md-15">
       <label for="validationDefault02" class="form-label">Password</label>
-      <input   type = "password" required #name = "ngModel" name ="password" placeholder=" Enter password" class="form-control" ngModel >
+      <input   type = "password" required #name = "ngModel" name ="password" placeholder=" Enter password" #userpassword class="form-control" ngModel >
       <span *ngIf = "name.invalid && name.touched" style="color : red"> Please enter password </span>
     </div>
 <br>
     <div class="col-12">
-      <button class="btn btn-primary" type="submit" (click) = "userLogin('email','password')">Login</button>
+      <button class="btn btn-primary" type="submit" (click) = "userLogin(useremail.value, userpassword.value)">Login</button>
     </div>
 
 
