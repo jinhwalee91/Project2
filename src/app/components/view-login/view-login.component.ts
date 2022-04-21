@@ -11,12 +11,13 @@ export class ViewLoginComponent implements OnInit {
   _loginService: LoginService;
   loginDetail:any =[];
 
-  constructor(_loginServiceRef: LoginService) {
+  constructor(_loginServiceRef: LoginService)
+  {
     this._loginService = _loginServiceRef;
   }
 
   showAllLogins() {
-    this._loginService.getAllEmployees().subscribe((data) => {
+    this._loginService.getAllLogin().subscribe((data) => {
       this.loginDetail = data;
       console.log(this.loginDetail);
     })

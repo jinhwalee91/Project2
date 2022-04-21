@@ -20,7 +20,7 @@ namespace Project2API.Controllers
         }
 
         [HttpGet]
-        [Route("Login By Email")]
+        [Route("ViewByEmail")]
         public IActionResult GetEmployeeById(string email)
         {
 

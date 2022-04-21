@@ -13,8 +13,7 @@ import { FooterComponent } from './sharepage/footer/footer.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { loginService } from './services/login.service.ts';
-import { ViewloginComponent } from './components/ViewLogin/viewlogin/viewlogin.component';
+import { LoginService } from './services/login.service';
 import { ViewLoginComponent } from './components/view-login/view-login.component';
 
 
@@ -28,7 +27,6 @@ import { ViewLoginComponent } from './components/view-login/view-login.component
     FooterComponent,
     LeaderboardComponent,
     UserProfileComponent,
-    ViewloginComponent,
     ViewLoginComponent
   ],
   imports: [
@@ -39,7 +37,7 @@ import { ViewLoginComponent } from './components/view-login/view-login.component
   ],
 
 
-  providers: [loginService],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
