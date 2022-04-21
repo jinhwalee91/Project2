@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
 
 @Component({
   selector: 'app-create-account',
@@ -10,12 +8,19 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class CreateAccountComponent implements OnInit {
 
+
+
   /*
+
+
+  ----------
+
   registrationGroup: FormGroup
 
 
 
   constructor(private formBuilder: FormBuilder) {
+
 
     this.registrationGroup = this.formBuilder.group({
       firstName: ['', [
@@ -24,7 +29,7 @@ export class CreateAccountComponent implements OnInit {
         Validators.maxLength(10)
       ]],
       lastName: ['', [
-        Validators.required,
+  Validators.required,
         Validators.minLength(4),
         Validators.maxLength(10)
       ]],
@@ -48,8 +53,8 @@ export class CreateAccountComponent implements OnInit {
 
    }
 
-   */ 
 
+*/
    
   ngOnInit(): void {
   }
