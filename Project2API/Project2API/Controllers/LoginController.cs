@@ -73,7 +73,7 @@ namespace Project2API.Controllers
 
         }
 
-
+        #region HTTP Put Using Object
         //[HttpPut]
         //[Route("ChangeName")]
         //public IActionResult ChangeName(LoginTable newName)
@@ -83,7 +83,7 @@ namespace Project2API.Controllers
         //        var account = (from a in dbContext.LoginTables
         //                       where a.Email == newName.Email
         //                       select a).SingleOrDefault();
-                               
+
         //        if(account != null)
         //        {
         //            account.FirstName = newName.FirstName;
@@ -102,6 +102,7 @@ namespace Project2API.Controllers
         //    }
 
         //}
+        #endregion
 
         [HttpPut]
         [Route("ChangeName")]
@@ -119,6 +120,36 @@ namespace Project2API.Controllers
                     account.LastName = newLastName;
                     dbContext.SaveChanges();
                     return Ok("Updated Name");
+                }
+                else
+                {
+                    return Ok("Not Found / Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+
+        [HttpPut]
+        [Route("ChangePassword")]
+        public IActionResult ChangePassword(string email, string oldPassword, string newPassword)
+        {
+            try
+            {
+                var account = (from a in dbContext.LoginTables
+                               where a.Email == email && a.AccountPassword == oldPassword
+                               select a).SingleOrDefault();
+
+                if (account != null)
+                {
+                    account.AccountPassword = newPassword;
+                    
+                    dbContext.SaveChanges();
+                    return Ok("Updated Password");
                 }
                 else
                 {
