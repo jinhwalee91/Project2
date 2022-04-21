@@ -14,10 +14,8 @@ import { AdminGuardService } from './services/admin-guard.service';
 const routes: Routes = [
 {path : '' , component: HomeComponent},
 {path:"home", component:HomeComponent},
-{path : 'login', component : LoginComponent, children: [
-  {path : 'createAccount', component : CreateAccountComponent}
-]},
-{path : 'createAccount', component : CreateAccountComponent},
+  { path: 'login', component: LoginComponent }, 
+  { path: 'createAccount', component : CreateAccountComponent},
   { path: "practice", component: TypingComponent },
   { path: "leaderboard", component: LeaderboardComponent },
   { path: "userProfile", component: UserProfileComponent },
