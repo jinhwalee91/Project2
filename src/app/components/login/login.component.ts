@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-import { UserService } from 'src/app/services/user.service';
-
 
 
 @Component({
@@ -11,10 +9,12 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginComponent implements OnInit {
 
+loginUser(item : any){
 
- greetUser(){
-   alert ('Welcome to Typing Competiton')
- } 
+console.warn (item);
+
+}
+
 
  _login : AuthService
  userDetail : any ; 

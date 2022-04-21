@@ -15,9 +15,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminGuardService } from './services/admin-guard.service';
 import { TypingComponent } from './components/typing/typing.component';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import {FormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -37,7 +36,7 @@ import { CommonModule } from '@angular/common';
     NgbModule,
     HttpClientModule,
     CommonModule,
-    FormsModule
+    FormsModule,
   ],
 
 
