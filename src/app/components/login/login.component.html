@@ -1,36 +1,22 @@
 
 <h1>Welcome to Login Page</h1>
-
+<form #loginform = "ngForm" (ngSubmit)="loginUser(loginform.value)">
 <div id = "login-container">
 <h2 id="header"> Log in Here ! </h2>
 
-  <!-- Old version 
-
-  <div>
-    <label for="validationDefault01" >E-mail</label>
-    <input type="email" placeholder="Enter your e-mail"  required>
-    <label for="firstName">Password</label>
-    <input type="password" placeholder="Enter your password" required>
-
-    <button class ='login-button'> Login </button>
-    
-    <ul>
-    <li> <a href = '#'> find my password using email</a> </li>
-    <li><a routerLink="createAccount" > Make new Account </a> </li>
-    </ul>
-
-    -->
 
     <div class="col-md-4">
       <label for="validationDefault01" class="form-label">E-mail</label>
-      <input type="text" class="form-control" id="validationDefault01"  required>
+      <input type="text" required #name = "ngModel" name ="email" placeholder ="Enter E-mail" class="form-control" ngModel>
+      <span *ngIf = "name.invalid && name.touched" style="color : red"> Please enter valid e-mail </span> 
     </div>
-   
+    <br>
     <div class="col-md-4">
       <label for="validationDefault02" class="form-label">Password</label>
-      <input type="password" class="form-control" id="validationDefault02" required>
+      <input   type = "password" required #name = "ngModel" name ="password" placeholder=" Enter password" class="form-control" ngModel >
+      <span *ngIf = "name.invalid && name.touched" style="color : red"> Please enter password </span>
     </div>
-
+<br>
     <div class="col-12">
       <button class="btn btn-primary" type="submit">Login</button>
     </div>
@@ -42,7 +28,17 @@
       </ul>
 
 </div>
+</form>
 
+<!-- 
+<form #loginform = "ngForm" (ngSubmit)="loginUser(loginform.value)">
+<input type = "text" required #name = "ngModel" name = "name" placeholder=" enter name" ngModel>
+<br> <span *ngIf = "name.invalid && name.touched" style="color : red"> Please enter valid name </span> <br>
+<input type = "password" required #name = "ngModel" name ="password" placeholder=" Enter password" ngModel>
+<br> <span> Please enter password </span> <br>
+<button>login </button>
 
+</form>
+-->
 
 <router-outlet></router-outlet>

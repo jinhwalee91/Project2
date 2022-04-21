@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
@@ -8,48 +7,15 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   templateUrl: './create-account.component.html',
   styleUrls: ['./create-account.component.css']
 })
+
+
 export class CreateAccountComponent implements OnInit {
 
-  /*
-  registrationGroup: FormGroup
+  Resgister(item : any) {
+    console.warn (item);
+  }
 
-
-
-  constructor(private formBuilder: FormBuilder) {
-
-    this.registrationGroup = this.formBuilder.group({
-      firstName: ['', [
-        Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(10)
-      ]],
-      lastName: ['', [
-        Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(10)
-      ]],
-      email: ['', [
-        Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(10)
-      ]],
-      password: ['', [
-        Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(10)
-      ]],
-      passwordconfirm: ['', [
-        Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(10)
-      ]]
-    })
-
-
-   }
-
-   */ 
-
+ 
    
   ngOnInit(): void {
   }

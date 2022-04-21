@@ -9,7 +9,7 @@
 .banner {
     background-image: url('../../../assets/img/typing.jpg');
     height : 600px;
-    background-position: center top;
+    background-position: center bottom;
     background-size: cover;
 }
 
@@ -32,19 +32,19 @@
 
 .content a {
     text-decoration: none;
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.733);
     color : var (--primary-color);
     padding : 20px, 20px;
     margin-top : 20px;
 }
 
 .content a:hover {
-    background-color: var(--primary-color);
+    background-color: rgba(0, 128, 128, 0.603);
     color : white;
 }
 
 .step-box {
-    background-color: green;
+    background-color: rgba(91, 177, 192, 0.541);
     padding : 20px 60px ;
     margin-top: 20px;
     margin-bottom: 40px;
@@ -58,4 +58,26 @@
 
 .step-box p {
     color : white;
+}
+
+@font-face {
+    font-family : Oleo;
+    src : url(../../../assets/font/PermanentMarker-Regular.ttf) format('truetype');
+}
+
+.Oleo {
+    font-family: Oleo;
+}
+
+#mainline {
+    margin-bottom: 30px;
+}
+
+#playnow {
+    font-family: Oleo ;
+    color: brown;
+}
+
+a{
+    border-radius: 5px;
 }

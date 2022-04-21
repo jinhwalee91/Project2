@@ -13,8 +13,11 @@ import { FooterComponent } from './sharepage/footer/footer.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AdminGuardService } from './services/admin-guard.service';
 import { TypingComponent } from './components/typing/typing.component';
-
+import { CommonModule } from '@angular/common';
+import {FormsModule} from '@angular/forms'
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -32,11 +35,13 @@ import { TypingComponent } from './components/typing/typing.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+    FormsModule,
   ],
 
 
-  providers: [],
+  providers: [AdminGuardService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
