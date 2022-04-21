@@ -17,6 +17,8 @@ import { AdminGuardService } from './services/admin-guard.service';
 import { TypingComponent } from './components/typing/typing.component';
 import { CommonModule } from '@angular/common';
 import {FormsModule} from '@angular/forms'
+import { AuthService } from './services/auth.service';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +42,7 @@ import {FormsModule} from '@angular/forms'
   ],
 
 
-  providers: [AdminGuardService],
+  providers: [AdminGuardService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

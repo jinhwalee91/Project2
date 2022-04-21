@@ -25,10 +25,6 @@ console.warn (item);
 
     };
 
-userLogin (user : any){
-this._login.getUser(user).subscribe( (data) => {this.userDetail = data})
-}
-
 
 
   ngOnInit(): void {
