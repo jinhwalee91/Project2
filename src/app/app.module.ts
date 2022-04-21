@@ -35,9 +35,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     FormsModule,
     NgbModule,
-    HttpClientModule,
-    CommonModule,
-    FormsModule
+    HttpClientModule
   ],
 
 

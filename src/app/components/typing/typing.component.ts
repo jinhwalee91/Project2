@@ -1,6 +1,6 @@
 import { keyframes } from '@angular/animations';
 import { NONE_TYPE, ViewEncapsulation } from '@angular/compiler';
-import { Component, ElementRef, HostListener, OnInit, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { sample } from 'rxjs';
 
 @Component({
@@ -15,16 +15,17 @@ export class TypingComponent implements OnInit
   // this will eventually pull a random sample from the db
   sampleText = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
   textHTMLContainer = "";
-  inputText = "";
+  inputText = "";   // basically only used to calculate wpm
   indexPointer = 0;
-  textStyleClass = "correct";
+  currentStyle = "correct";
   wpm = 0;
   mistypeCounter = 0;
 
   time = 60;
   timerDisplay = true;
 
-  children = [];
+  outputParagraph!: HTMLElement;
+  children!: HTMLCollection;
 
   constructor() { }
 
@@ -32,8 +33,22 @@ export class TypingComponent implements OnInit
   {
     for(let i = 0; i < this.sampleText.length; i++)
     {
-      this.textHTMLContainer += "<span [ngClass]=" + this.textStyleClass + ">" + this.sampleText[i] + "</span>";
+      // give the first character the underline "pointer" to start
+      if (i == 0)
+      {
+        this.textHTMLContainer += "<span class='currentLetter' [ngClass]=" + this.currentStyle + ">" + this.sampleText[i] + "</span>";
+      }
+      else
+      {
+        this.textHTMLContainer += "<span [ngClass]=" + this.currentStyle + ">" + this.sampleText[i] + "</span>";
+      }
     }
+
+    // get the container for all the text
+    this.outputParagraph = <HTMLElement>document.querySelector("#output");
+
+    // and then get its children (every letter separated in their own tags)
+    this.children = this.outputParagraph.children;
 
     setInterval(() => {
       this.time--;
@@ -51,21 +66,17 @@ export class TypingComponent implements OnInit
   @HostListener('window:keyup', ['$event'])
   getKeyPressed(event:KeyboardEvent)
   {
-    // only allow key pressed within the time limit
+    // only allow key presses within the time limit
     if (this.timerDisplay == true)
-    {
-      // get the container for all the text
-      var outputParagraph = <HTMLElement>document.querySelector("#output");
-      // and then get its children (every letter separated in their own tags)
-      var children = outputParagraph.children;
-
+    {      
       // prevent special keys (shift, enter, alt, etc) from doing anything
       if (event.key != "Enter" && event.key != "Backspace" && event.key != "Shift" && event.key != "CapsLock" && event.key != "Alt" && event.key != "Escape" && event.key != "Control"
           && event.key != "OS" && event.key != "Tab")
       {
-        this.checkKey(event, this.indexPointer)
+        this.checkKey(event, this.indexPointer);
 
-        children[this.indexPointer].className = this.textStyleClass;
+        this.children[this.indexPointer].className = this.currentStyle;
+        this.children[this.indexPointer + 1].className = 'currentLetter';
         
         this.inputText += event.key;
         this.indexPointer++;   // move the pointer for every key pressed
@@ -79,6 +90,8 @@ export class TypingComponent implements OnInit
         if (this.indexPointer > 0)
         {
           this.indexPointer --;
+          this.children[this.indexPointer].className = 'currentLetter';
+          this.children[this.indexPointer + 1].className = '';
         }
       }
     }
@@ -89,11 +102,11 @@ export class TypingComponent implements OnInit
   {
     if (event.key.toString() == this.sampleText[index])
     {
-      this.textStyleClass = 'correct';
+      this.currentStyle = 'correct';
     }
     else
     {
-      this.textStyleClass = 'incorrect';
+      this.currentStyle = 'incorrect';
       this.mistypeCounter++;
     }
   }

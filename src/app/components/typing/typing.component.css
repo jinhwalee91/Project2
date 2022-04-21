@@ -5,3 +5,7 @@
 ::ng-deep .incorrect {
     color: red;
 }
+
+::ng-deep .currentLetter {
+    text-decoration: underline;
+}
