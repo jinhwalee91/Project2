@@ -45,5 +45,22 @@ namespace Project2API.Controllers
             }
         }
 
+
+
+        [HttpPost]
+        [Route("Create")]
+        public IActionResult AddAccount(UserProfile newAccount)
+        {
+
+            if (newAccount != null)
+            {
+                dbContext.UserProfiles.Add(newAccount);
+                dbContext.SaveChanges();
+                return Created("", "Account Added Successfully");
+            }
+            else
+                return BadRequest("Something went wrong");
+
+        }
     }
 }

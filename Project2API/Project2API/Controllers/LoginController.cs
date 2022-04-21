@@ -46,8 +46,8 @@ namespace Project2API.Controllers
             }
         }
 
-        [HttpPost]
-        [Route("Login")]
+        [HttpGet]
+        [Route("login/{email}/{password}")]
         public IActionResult GetLoginByEmailPassword(string email, string password)
         {
 
@@ -147,7 +147,7 @@ namespace Project2API.Controllers
                 if (account != null)
                 {
                     account.AccountPassword = newPassword;
-                    
+
                     dbContext.SaveChanges();
                     return Ok("Updated Password");
                 }
@@ -162,6 +162,41 @@ namespace Project2API.Controllers
             }
 
         }
-    }
 
+
+        [HttpPost]
+        [Route("CreateLogin")]
+        public IActionResult AddLogin(LoginTable newLogin)
+        {
+          
+            if (newLogin != null)
+            {
+              
+                dbContext.LoginTables.Add(newLogin);
+                dbContext.SaveChanges();
+                return Created("", "Login Added Successfully");
+            }
+            else
+                return BadRequest("Something went wrng");
+
+        }
+
+
+        //[HttpPost]
+        //[Route("CreateLogin")]
+        //public IActionResult AddLogin(LoginTable newLogin)
+        //{
+        //    if (newLogin == null)
+        //    {
+        //        dbContext.LoginTables.Add(newLogin);
+        //        dbContext.SaveChanges();
+        //        return Created("", "Login Added Successfully");
+        //    }
+        //    else
+        //        return BadRequest("Something went wrng");
+
+        //}
+
+
+    }
 }
