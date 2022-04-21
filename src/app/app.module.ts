@@ -13,6 +13,7 @@ import { FooterComponent } from './sharepage/footer/footer.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AdminGuardService } from './services/admin-guard.service';
 
 
 @NgModule({
@@ -34,7 +35,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
 
 
-  providers: [],
+  providers: [AdminGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
