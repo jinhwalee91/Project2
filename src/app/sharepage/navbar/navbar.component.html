@@ -21,12 +21,13 @@
       -->
 
       <li class="nav-item">
-        <a class="nav-link" routerLink="'.'" routerLinkActive="active-link" (click)="isMenuCollapsed = true" *ngIf="signedIn$ | async">Sing Out</a>
+        <a class="nav-link" routerLink="'.'" routerLinkActive="active-link" (click)="isMenuCollapsed = true" *ngIf="signedIn$ | async">Sign Out</a>
       </li>
 
       <!-- above  *ngIf="signedIn$ | async" is added for making sign out sign disappeared when it's not logged in-->
 
-      <ng-container *ngIf="!(signedIn$ | async)">   <!-- this line added for showing below menu when it's not logged in-->
+      <ng-container *ngIf="!(signedIn$ | async)">
+        <!-- this line added for showing below menu when it's not logged in-->
 
         <li class="nav-item">
           <a class="nav-link" routerLink="login" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Login</a>
@@ -43,13 +44,17 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="practice" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Practice</a>
         </li>
-        
+
         <li class="nav-item">
           <a class="nav-link" routerLink="leaderboard" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Leaderboard</a>
         </li>
 
+        <li class="nav-item">
+          <a class="nav-link" routerLink="admin" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Admin</a>
+        </li>
 
-        </ng-container>  <!-- this line added for above reason -->
+
+      </ng-container>  <!-- this line added for above reason -->
          
         <!-- TO DO: see above -->
 
@@ -58,7 +63,7 @@
 
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" (click)="isMenuCollapsed = true">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" (click)="isMenuCollapsed = true" >
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>

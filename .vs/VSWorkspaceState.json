@@ -4,6 +4,7 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
+<<<<<<< HEAD
     "\\src\\app\\components\\login",
     "\\src\\app\\components\\view-login",
     "\\src\\app\\services",
@@ -13,5 +14,13 @@
     "\\src\\assets\\img"
   ],
   "SelectedNode": "\\src\\app\\components\\view-login\\view-login.component.html",
+=======
+    "\\src\\app\\components\\typing",
+    "\\src\\app\\module",
+    "\\src\\app\\module\\auth",
+    "\\src\\app\\services",
+    "\\src\\environments"
+  ],
+>>>>>>> d618f4a5c6c767e33cf8cfd6a4dfa39ee1ad7664
   "PreviewInSolutionExplorer": false
 }

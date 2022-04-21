@@ -16,9 +16,10 @@ private _http : HttpClient;
     this._http = _httpRef;
    }
 
+
    
-   getUser (userEmail : any) {
-    return this._http.get('https://localhost:7274/api/Login/' + userEmail);
+   getAllUsers () {
+    return this._http.get("https://localhost:7274/api/Login/elist");
    }
 
 
