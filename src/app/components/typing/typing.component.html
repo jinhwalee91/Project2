@@ -1,10 +1,15 @@
-<p>
-    <span id="output" [innerHTML]="textHTMLContainer"></span>
-</p>
-
-<div id="timer" *ngIf="timerDisplay">Time left: {{time}}</div>
-
-<div id="finished" *ngIf="!timerDisplay">
-    <div>Words Per Minute: {{wpm}}</div>
-    <div>Mistakes: {{mistypeCounter}}</div>
+<div class="container">
+    <div class="row">
+        <p class="col-10">
+            <span id="output" [innerHTML]="textHTMLContainer">asdfasdfs</span>
+        </p>
+        <div class="col-2" id="timer" *ngIf="timerDisplay; else elseBlock">Time left: {{time}}</div>
+        <ng-template #elseBlock>Time left: 0</ng-template>
+    </div>
+    
+    <div id="finished" *ngIf="!timerDisplay">
+        <div>Words Per Minute: {{wpm}}</div>
+        <div>Mistakes: {{mistypeCounter}}</div>
+    </div>
+    
 </div>

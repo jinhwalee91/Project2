@@ -13,6 +13,7 @@ import { FooterComponent } from './sharepage/footer/footer.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TypingComponent } from './components/typing/typing.component';
 
 
 @NgModule({
