@@ -24,7 +24,7 @@ namespace Project2API.Models.EF
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=tcp:p2project.database.windows.net;Database=toptypersDB;Persist Security Info=False;User ID=project2;Password=Password@4567;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                optionsBuilder.UseSqlServer("Server=tcp:p2project.database.windows.net,1433;Initial Catalog=toptypersDB;Persist Security Info=False;User ID=project2;Password=Password@4567;");
             }
         }
 
@@ -72,11 +72,14 @@ namespace Project2API.Models.EF
 
             modelBuilder.Entity<UserProfile>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.AccountId)
+                    .HasName("PK__userProf__F267251E56348F20");
 
                 entity.ToTable("userProfile");
 
-                entity.Property(e => e.AccountId).HasColumnName("accountId");
+                entity.Property(e => e.AccountId)
+                    .ValueGeneratedNever()
+                    .HasColumnName("accountId");
 
                 entity.Property(e => e.AvatarLink)
                     .HasMaxLength(150)
@@ -93,10 +96,10 @@ namespace Project2API.Models.EF
                 entity.Property(e => e.Wpm).HasColumnName("WPM");
 
                 entity.HasOne(d => d.Account)
-                    .WithMany()
-                    .HasForeignKey(d => d.AccountId)
+                    .WithOne(p => p.UserProfile)
+                    .HasForeignKey<UserProfile>(d => d.AccountId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__userProfi__accou__6383C8BA");
+                    .HasConstraintName("FK__userProfi__accou__160F4887");
             });
 
             OnModelCreatingPartial(modelBuilder);

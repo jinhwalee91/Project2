@@ -12,5 +12,7 @@ namespace Project2API.Models.EF
         public string AccountPassword { get; set; } = null!;
         public string? Gender { get; set; }
         public bool? IsAdmin { get; set; }
+
+        public virtual UserProfile UserProfile { get; set; } = null!;
     }
 }
