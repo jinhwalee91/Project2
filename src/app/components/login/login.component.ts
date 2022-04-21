@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 
 
@@ -15,11 +16,18 @@ export class LoginComponent implements OnInit {
    alert ('Welcome to Typing Competiton')
  } 
 
+ _login : AuthService
+ userDetail : any ; 
 
-  constructor() {
+  constructor(_loginRef : AuthService) {
 
+    this._login = _loginRef;
 
     };
+
+userLogin (user : any){
+this._login.getUser(user).subscribe( (data) => {this.userDetail = data})
+}
 
 
 
