@@ -1,7 +1,12 @@
+
 ::ng-deep .correct {
-    color: green;
+    background-color: #a1f7b8;
 }
 
 ::ng-deep .incorrect {
-    color: red;
+    background-color: #fc9292;
+}
+
+::ng-deep .currentLetter {
+    text-decoration: underline;
 }
