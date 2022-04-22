@@ -62,5 +62,34 @@ namespace Project2API.Controllers
                 return BadRequest("Something went wrong");
 
         }
+
+        [HttpPut]
+        [Route("Edit")]
+        public IActionResult ScoreUpdate(int accountId, int newELO, byte newWPM)
+        {
+            try
+            {
+                var score = (from a in dbContext.UserProfiles
+                               where a.AccountId == accountId 
+                               select a).SingleOrDefault();
+
+                if (score != null)
+                {
+                    score.UserElo = newELO;
+                    score.Wpm = newWPM;
+
+                    dbContext.SaveChanges();
+                    return Ok("Updated Scores");
+                }
+                else
+                {
+                    return Ok("Not Found / Error");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

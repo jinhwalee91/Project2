@@ -164,30 +164,14 @@ namespace Project2API.Controllers
         }
 
 
-        [HttpPost]
-        [Route("CreateLogin")]
-        public IActionResult AddLogin(LoginTable newLogin)
-        {
-          
-            if (newLogin != null)
-            {
-              
-                dbContext.LoginTables.Add(newLogin);
-                dbContext.SaveChanges();
-                return Created("", "Login Added Successfully");
-            }
-            else
-                return BadRequest("Something went wrng");
-
-        }
-
-
         //[HttpPost]
         //[Route("CreateLogin")]
         //public IActionResult AddLogin(LoginTable newLogin)
         //{
-        //    if (newLogin == null)
+          
+        //    if (newLogin != null)
         //    {
+              
         //        dbContext.LoginTables.Add(newLogin);
         //        dbContext.SaveChanges();
         //        return Created("", "Login Added Successfully");
@@ -196,6 +180,30 @@ namespace Project2API.Controllers
         //        return BadRequest("Something went wrng");
 
         //}
+
+
+        [HttpPost]
+        [Route("CreateLogin")]
+        public IActionResult AddLogin(string firstName, string lastName, string email, string password, string gender)
+        {
+
+            LoginTable newLogin = new LoginTable(); 
+            newLogin.FirstName = firstName;
+            newLogin.LastName = lastName;
+            newLogin.Email = email; 
+            newLogin.AccountPassword = password;
+            newLogin.Gender = gender;
+          
+            if (newLogin != null)
+            {
+                dbContext.LoginTables.Add(newLogin);
+                dbContext.SaveChanges();
+                return Created("", "Login Added Successfully");
+            }
+            {
+                return Ok("Not Found / Error");
+            }
+        }
 
 
     }
