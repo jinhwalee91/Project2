@@ -19,12 +19,12 @@
 
 
 <form>
-  <div class="form-group">
+  <div class="from">
     <label for="getusers">User List </label>    
   </div>
   <button class="btn btn-primary" (click) ="showAllUser()">Get Users</button>
   <div>
-    <table>
+    <table id="usertable" border = "2">
       <tr *ngFor = "let u of allUser">
       <td> {{u.accountId}} </td>
       <td> {{u.firstName}} </td>
