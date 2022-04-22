@@ -13,6 +13,8 @@ import { FooterComponent } from './sharepage/footer/footer.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginService } from './services/login.service';
+import { ViewLoginComponent } from './components/view-login/view-login.component';
 import { AdminGuardService } from './services/admin-guard.service';
 import { TypingComponent } from './components/typing/typing.component';
 import { CommonModule } from '@angular/common';
@@ -29,7 +31,8 @@ import { AuthService } from './services/auth.service';
     NavbarComponent,
     FooterComponent,
     LeaderboardComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ViewLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,7 @@ import { AuthService } from './services/auth.service';
   ],
 
 
-  providers: [AdminGuardService, AuthService],
+  providers: [LoginService, AdminGuardService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
