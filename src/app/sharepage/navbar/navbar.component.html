@@ -21,12 +21,12 @@
       -->
 
       <li class="nav-item">
-        <a class="nav-link" routerLink="'.'" routerLinkActive="active-link" (click)="isMenuCollapsed = true" *ngIf="signedIn$ | async">Sign Out</a>
+        <a class="nav-link" routerLink="'.'" routerLinkActive="active-link" (click)="isMenuCollapsed = true" >Sign Out</a>   <!-- *ngIf="signedIn$ | async" -->
       </li>
 
       <!-- above  *ngIf="signedIn$ | async" is added for making sign out sign disappeared when it's not logged in-->
 
-      <ng-container *ngIf="!(signedIn$ | async)">
+      <ng-container >       <!-- *ngIf="!(signedIn$ | async)" -- > 
         <!-- this line added for showing below menu when it's not logged in-->
 
         <li class="nav-item">

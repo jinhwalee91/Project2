@@ -18,9 +18,11 @@ export class LoginComponent implements OnInit {
 
 _userLogin : AuthGuardService ;
  loginUser : any ;
+ _router : Router;
 
-  constructor(_userLoginRef : AuthGuardService) {
+  constructor(_userLoginRef : AuthGuardService, private routerRef : Router) {
     this._userLogin = _userLoginRef
+    this._router = routerRef
     };
 
     
@@ -32,6 +34,8 @@ _userLogin : AuthGuardService ;
         else {
           this._userLogin.userDetail = data ; 
           console.log ('Login successful');
+          this._userLogin.isUserLoggedin = true;
+          this._router.navigateByUrl("/home");
         }
 
       },(err) => {

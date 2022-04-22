@@ -11,13 +11,14 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { ViewLoginComponent } from  './components/view-login/view-login.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AdminGuardService } from './services/admin-guard.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
 {path : '' , component: HomeComponent},
 {path:"home", component:HomeComponent},
   { path: 'login', component: LoginComponent }, 
   { path: 'createAccount', component : CreateAccountComponent},
-  { path: "practice", component: TypingComponent },
+  { path: "practice", component: TypingComponent, canActivate : [AuthGuardService] },
   { path: "leaderboard", component: LeaderboardComponent },
   { path: "userProfile", component: UserProfileComponent },
   { path: "ViewLogin", component: ViewLoginComponent},

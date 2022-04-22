@@ -12,6 +12,7 @@ export class AuthGuardService implements CanActivate{
 
   private _http : HttpClient; 
   userDetail : any = "blank"
+  isUserLoggedin:boolean = false;
 
   constructor(private _httpRef : HttpClient) {
     this._http = _httpRef; 
