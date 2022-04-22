@@ -1,0 +1,71 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <!-- <a class="navbar-brand" routerLink="">TopTyper</a> -->
+    <img src="../../../assets/img/TopTyperTransparentLogo.png" alt="Top Typer" class="navbar-brand" routerLink="">
+    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact : true}" (click)="isMenuCollapsed = true">Home</a>
+        </li>
+
+        <!-- TO DO: -->
+        <!--
+        Make it so that these list items are mutually exclusive
+        ie, if the user is logged in, show only 'userProfile'
+        and, if the user is not logged in, show 'login' and 'createAccount'
+      -->
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="'.'" routerLinkActive="active-link" (click)="isMenuCollapsed = true" *ngIf="signedIn$ | async">Sign Out</a>
+      </li>
+
+      <!-- above  *ngIf="signedIn$ | async" is added for making sign out sign disappeared when it's not logged in-->
+
+      <ng-container *ngIf="!(signedIn$ | async)">
+        <!-- this line added for showing below menu when it's not logged in-->
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="login" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="createAccount" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Create an Account</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="userProfile" routerLinkActive="active-link" (click)="isMenuCollapsed = true">My Profile</a>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="practice" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Practice</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="leaderboard" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Leaderboard</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="admin" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Admin</a>
+        </li>
+
+
+      </ng-container>  <!-- this line added for above reason -->
+         
+        <!-- TO DO: see above -->
+
+
+
+
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" (click)="isMenuCollapsed = true" >
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  </nav>

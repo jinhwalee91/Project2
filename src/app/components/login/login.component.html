@@ -1,0 +1,44 @@
+
+<h1>Welcome to Login Page</h1>
+<form #loginform = "ngForm" (ngSubmit)="loginUser(loginform.value)">
+<div id = "login-container">
+<h2 id="header"> Log in Here ! </h2>
+
+
+    <div class="col-md-4">
+      <label for="validationDefault01" class="form-label">E-mail</label>
+      <input type="text" required #name = "ngModel" name ="email" placeholder ="Enter E-mail" class="form-control" ngModel>
+      <span *ngIf = "name.invalid && name.touched" style="color : red"> Please enter valid e-mail </span> 
+    </div>
+    <br>
+    <div class="col-md-4">
+      <label for="validationDefault02" class="form-label">Password</label>
+      <input   type = "password" required #name = "ngModel" name ="password" placeholder=" Enter password" class="form-control" ngModel >
+      <span *ngIf = "name.invalid && name.touched" style="color : red"> Please enter password </span>
+    </div>
+<br>
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit">Login</button>
+    </div>
+
+
+    <ul>
+      <li> <a href = '#'> find my password using email</a> </li>
+      <li><a routerLink="createAccount" > Make new Account </a> </li>
+      </ul>
+
+</div>
+</form>
+
+<!-- 
+<form #loginform = "ngForm" (ngSubmit)="loginUser(loginform.value)">
+<input type = "text" required #name = "ngModel" name = "name" placeholder=" enter name" ngModel>
+<br> <span *ngIf = "name.invalid && name.touched" style="color : red"> Please enter valid name </span> <br>
+<input type = "password" required #name = "ngModel" name ="password" placeholder=" Enter password" ngModel>
+<br> <span> Please enter password </span> <br>
+<button>login </button>
+
+</form>
+-->
+
+<router-outlet></router-outlet>

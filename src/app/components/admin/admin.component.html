@@ -1,0 +1,39 @@
+
+
+<form>
+  <div class="form-group">
+    <label for="newWord">Input Words</label>
+    <input type="text" class="form-control" id="newWord" aria-describedby="newWordsHelp" placeholder="Input new words here.">
+    <small id="newWordsHelp" class="form-text text-muted">Add new words to the database.</small>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<form>
+  <div class="form-group">
+    <label for="deleteWord">Delete Words</label>
+    <input type="text" class="form-control" id="newWord" aria-describedby="newWordsHelp" placeholder="Input words to search for and delete.">
+    <small id="newWordsHelp" class="form-text text-muted">Delete words from the database.</small>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+<form>
+  <div class="form-group">
+    <label for="getusers">User List </label>    
+  </div>
+  <button class="btn btn-primary" (click) ="showAllUser()">Get Users</button>
+  <div>
+    <table>
+      <tr *ngFor = "let u of allUser">
+      <td> {{u.accountId}} </td>
+      <td> {{u.firstName}} </td>
+      <td> {{u.lastName}} </td>
+      <td> {{u.email}} </td>
+      <td> {{u.accountPassword}} </td>
+      <td> {{u.gender}} </td>
+    </tr>
+    </table>
+    </div>
+</form>
+
