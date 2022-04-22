@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TYextFgqsTW3iHj8v0ZCR6tMZE4ciD89lQdmRvQn3+IDMZPnSPQWKba5wZyQfzl4RU4cjeLuLhfH7EX9UxbTbA==",
+  "dgSpecHash": "4SF/72ktSD9iYFtyzdIN34fvSolfNrr7JQD4qHCe9WzG7Yzz220edJs3r8e9StvZIi3xXUQudbsifkIi3JjKew==",
   "success": true,
-  "projectFilePath": "R:\\RevatureProjects\\Project2ForkedAgain\\Project2Forked\\Project2API\\Project2API\\Project2API.csproj",
+  "projectFilePath": "R:\\RevatureProjects\\Project2\\Project2API\\Project2API\\Project2API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Shane LeGrand\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Shane LeGrand\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",

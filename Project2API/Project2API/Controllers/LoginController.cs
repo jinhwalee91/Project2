@@ -21,7 +21,7 @@ namespace Project2API.Controllers
 
         [HttpGet]
         [Route("ViewByEmail")]
-        public IActionResult GetEmployeeById(string email)
+        public IActionResult GetLoginByEmail(string email)
         {
 
 
@@ -59,11 +59,13 @@ namespace Project2API.Controllers
                 int credential = (from z in dbContext.LoginTables where z.Email == email && z.AccountPassword == password select z).Count();
                 if (credential == 1)
                 {
-                    return Ok("Login Found");
+                    //Login Correct
+                    return Ok(true);
                 }
                 else
                 {
-                    return NotFound("Login Incorrect");
+                    //Login Incorrect
+                    return Ok(false);
                 }
             }
             catch (Exception ex)
@@ -164,30 +166,14 @@ namespace Project2API.Controllers
         }
 
 
-        [HttpPost]
-        [Route("CreateLogin")]
-        public IActionResult AddLogin(LoginTable newLogin)
-        {
-          
-            if (newLogin != null)
-            {
-              
-                dbContext.LoginTables.Add(newLogin);
-                dbContext.SaveChanges();
-                return Created("", "Login Added Successfully");
-            }
-            else
-                return BadRequest("Something went wrng");
-
-        }
-
-
         //[HttpPost]
         //[Route("CreateLogin")]
         //public IActionResult AddLogin(LoginTable newLogin)
         //{
-        //    if (newLogin == null)
+          
+        //    if (newLogin != null)
         //    {
+              
         //        dbContext.LoginTables.Add(newLogin);
         //        dbContext.SaveChanges();
         //        return Created("", "Login Added Successfully");
@@ -196,6 +182,31 @@ namespace Project2API.Controllers
         //        return BadRequest("Something went wrng");
 
         //}
+
+
+
+        [HttpPost]
+        [Route("CreateLogin")]
+        public IActionResult AddLogin(string firstName, string lastName, string email, string password, string gender)
+        {
+
+            LoginTable newLogin = new LoginTable();
+            newLogin.FirstName = firstName;
+            newLogin.LastName = lastName;
+            newLogin.Email = email;
+            newLogin.AccountPassword = password;
+            newLogin.Gender = gender;
+
+            if (newLogin != null)
+            {
+                dbContext.LoginTables.Add(newLogin);
+                dbContext.SaveChanges();
+                return Created("", "Login Added Successfully");
+            }
+            {
+                return Ok("Not Found / Error");
+            }
+        }
 
 
     }
