@@ -1,23 +1,52 @@
 
+
+
+
+<div class="banner">
+  <br>
+  <br>
 <h1>Welcome to Login Page</h1>
+<br>
+<div class="container text-center" id="login-container">
+<form  #loginform = "ngForm" (ngSubmit)="loginUser(loginform.value)">
 
-<div id="login-container">
 
 
-  <div>
-    <label for="firstName">E-mail</label>
-    <input type="email" placeholder="Enter your e-mail"  >
-    <label for="firstName">Password</label>
-    <input type="password" placeholder="Enter your password">
+    <div class="col-md-15">
+      <label for="validationDefault01" class="form-label" >E-mail</label>
+      <input type="text" required #name = "ngModel" name ="email" placeholder ="Enter E-mail"  #email class="form-control" ngModel>
+      <span *ngIf = "name.invalid && name.touched" style="color : red" > Please enter valid e-mail </span> 
+    </div>
+    <br>
+    <div class="col-md-15">
+      <label for="validationDefault02" class="form-label">Password</label>
+      <input   type = "password" required #name = "ngModel" name ="password" placeholder=" Enter password" #password class="form-control" ngModel >
+      <span *ngIf = "name.invalid && name.touched" style="color : red"> Please enter password </span>
+    </div>
+<br>
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit" (click) = "userLogin(email.value, password.value)">Login</button>
+    </div>
 
-    <button (click)="greetUser()" class ='login-button'> Login </button>
-    
-    <ul>
-    <li> <a href = '#'> find my password using email</a> </li>
-    <li><a routerLink="createAccount" > Make new Account </a> </li>
-    </ul>
+
+    <ul class="no-bullets">
+      <br>
+      <li> <a href = '#'> find my password using email</a> </li>
+      <li><a routerLink="createAccount" > Make new Account </a> </li>
+      </ul>
+
+</form>
 </div>
+</div>
+<!-- 
+<form #loginform = "ngForm" (ngSubmit)="loginUser(loginform.value)">
+<input type = "text" required #name = "ngModel" name = "name" placeholder=" enter name" ngModel>
+<br> <span *ngIf = "name.invalid && name.touched" style="color : red"> Please enter valid name </span> <br>
+<input type = "password" required #name = "ngModel" name ="password" placeholder=" Enter password" ngModel>
+<br> <span> Please enter password </span> <br>
+<button>login </button>
 
-
+</form>
+-->
 
 <router-outlet></router-outlet>
