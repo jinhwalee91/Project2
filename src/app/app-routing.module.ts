@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { TypingComponent } from './components/typing/typing.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { ViewLoginComponent } from  './components/view-login/view-login.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AdminGuardService } from './services/admin-guard.service';
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: "practice", component: TypingComponent },
   { path: "leaderboard", component: LeaderboardComponent },
   { path: "userProfile", component: UserProfileComponent },
+  { path: "ViewLogin", component: ViewLoginComponent},
   { path: "admin", canLoad: [AdminGuardService],
     loadChildren: () => import('./module/auth/auth.module').then(x => x.AuthModule) }
   
