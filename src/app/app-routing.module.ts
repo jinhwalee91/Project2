@@ -12,6 +12,7 @@ import { ViewLoginComponent } from  './components/view-login/view-login.componen
 import { AdminComponent } from './components/admin/admin.component';
 import { AdminGuardService } from './services/admin-guard.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { SignoutComponent } from './components/signout/signout.component';
 
 const routes: Routes = [
 {path : '' , component: HomeComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: "userProfile", component: UserProfileComponent },
   { path: "ViewLogin", component: ViewLoginComponent},
   { path: "admin", canLoad: [AdminGuardService],
-    loadChildren: () => import('./module/auth/auth.module').then(x => x.AuthModule) }
+    loadChildren: () => import('./module/auth/auth.module').then(x => x.AuthModule) },
+  {path : "signout", component : SignoutComponent}
   
 ];
 

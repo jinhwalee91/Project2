@@ -20,6 +20,7 @@ import { TypingComponent } from './components/typing/typing.component';
 import { CommonModule } from '@angular/common';
 import {FormsModule} from '@angular/forms'
 import { AuthService } from './services/auth.service';
+import { SignoutComponent } from './components/signout/signout.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AuthService } from './services/auth.service';
     FooterComponent,
     LeaderboardComponent,
     UserProfileComponent,
-    ViewLoginComponent
+    ViewLoginComponent,
+    SignoutComponent
   ],
   imports: [
     BrowserModule,
