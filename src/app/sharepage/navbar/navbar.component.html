@@ -38,9 +38,11 @@
         </li>
       </ng-template>
 
+      <span *ngIf = "!(_userLogin.isUserLoggedin) ">
         <li class="nav-item">
           <a class="nav-link" routerLink="createAccount" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Create an Account</a>
         </li>
+        </span>
 
         <span *ngIf = "_userLogin.isUserLoggedin ">
         <li class="nav-item">

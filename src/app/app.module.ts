@@ -18,7 +18,7 @@ import { ViewLoginComponent } from './components/view-login/view-login.component
 import { AdminGuardService } from './services/admin-guard.service';
 import { TypingComponent } from './components/typing/typing.component';
 import { CommonModule } from '@angular/common';
-import {FormsModule} from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { AuthService } from './services/auth.service';
 import { SignoutComponent } from './components/signout/signout.component';
 
@@ -43,6 +43,7 @@ import { SignoutComponent } from './components/signout/signout.component';
     HttpClientModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule
   ],
 
 

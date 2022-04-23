@@ -1,44 +1,50 @@
 
 <div class = "banner">
-  
+<form>
   <h1 id="registrationHeader"> Create an account </h1>
   <div class="container text-center" id="registrationContainer">
-  <form  class="row g-3" >
+  <form  class="row g-3" [formGroup]="signupForm" (ngSubmit)="signUp()">
     <div class="col-md-3"> 
       <label for="validationDefault01" class="form-label" >First name</label>
-      <input type="text" class="form-control" >
+      <input type="text" class="form-control" formControlName="firstname" >
     </div>
 
 
     <div class="col-md-3">
       <label for="validationDefault02" class="form-label">Last name</label>
-      <input type="text" class="form-control" >
+      <input type="text" class="form-control" formControlName="lastname"  >
     </div>
    
     <div class="col-md-6">
       <label for="validationDefaultUsername" class="form-label">E-mail</label>
       <div class="input-group">
         <span class="input-group-text" id="inputGroupPrepend2">@</span>
-        <input type="text" class="form-control"   aria-describedby="inputGroupPrepend2" >
+        <input type="text" class="form-control"   aria-describedby="inputGroupPrepend2" formControlName="email"  >
       </div>
   
     </div>
     <div class="col-md-3">
       <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" >
+      <input type="password" class="form-control" formControlName="password"  >
     </div>
+
+
+    <!--
     <div class="col-md-3">
       <label for="passwordconfirm" class="form-label">Confirm Password</label>
-      <input type="password" class="form-control" >
+      <input type="password" class="form-control" formControlName="confirmpassword"  >
     </div>
+-->
+
+
     <div class="col-md-2">
       <label for="validationDefault04" class="form-label">Gender</label>
-      <select class="form-select" >
+      <select class="form-select" formControlName="gender" >
         <option selected disabled value="">Choose...</option>
         <option selected>Select gender</option>
-        <option>Male</option>
-        <option>Female</option>
-        <option>Do not prefer to answer</option>
+        <option >Male</option>
+        <option >Female</option>
+        <option >Do not prefer to answer</option>
       </select>
     </div>
     <div class="col-md-6" >
@@ -50,14 +56,11 @@
       </div>
     </div>
     <div class="col-12">
-      <button class="btn btn-primary" type="submit" (click)="registerUser(regUser)" >Submit form</button>
+      <button class="btn btn-primary" [disabled]="!signupForm.valid" >Submit form</button>
     </div>
   </form>
 
 </div>
-</div>
-
-
 
 
 

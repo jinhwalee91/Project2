@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
-
-
+import { FormGroup, FormBuilder, Validators } from "@angular/forms"
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-account',
@@ -12,28 +12,45 @@ import { AuthService } from 'src/app/services/auth.service';
 
 export class CreateAccountComponent implements OnInit {
 
-_authService : AuthService ;
-regUser : any ; 
+   //Property to hold the formGroup
+   public signupForm !: FormGroup;
 
-constructor (_authServiceRef : AuthService) {
-  this._authService = _authServiceRef
-}
 
-registerUser(user : any )
-{
-  this._authService.registerUser(user).subscribe (
-     (data) => {this.regUser = data; console.log(this.regUser)
-  })
+constructor (private formBuilder: FormBuilder,private http: HttpClient,private router: Router) {
+ 
 }
 
    
-  ngOnInit(): void {
-  }
+ngOnInit(): void {
+  //Initialize the form
+  this.signupForm = this.formBuilder.group({
+    firstname: ['', Validators.required],
+    lastname: ['',  Validators.required],
+    email: ['',    [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(8)]],
+    gender: ['', Validators.required]
+})
 
+
+}
+
+
+signUp() {
+  this.http.post<any>("https://localhost:7274/api/Login/CreateLogin/", this.signupForm.value)
+    .subscribe((res: any) => {
+      this.signupForm.reset();
+      this.router.navigate(['login'])
+    }, (err: any) => {
+      alert("something went wrong");
+    });
 }
 
 
 
 
+  
+
+
+}
 
 
