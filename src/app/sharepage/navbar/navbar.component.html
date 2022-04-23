@@ -19,58 +19,54 @@
         ie, if the user is logged in, show only 'userProfile'
         and, if the user is not logged in, show 'login' and 'createAccount'
       -->
-      <span *ngIf = "_userLogin.isUserLoggedin ; else login">
-        <ng-template #logout>
+  
+      <span *ngIf = "_userLogin.isUserLoggedin ; else login">  
         <li class="nav-item">
-        <a class="nav-link" routerLink="signout" routerLinkActive="active-link" (click)="isMenuCollapsed = true" >Sign Out</a>   <!-- *ngIf="signedIn$ | async" -->
+        <a class="nav-link" routerLinkActive="active-link" (click)="exit()" >Sign Out</a>  
       </li>
-      </ng-template>
       </span>
+   
 
-      <!-- above  *ngIf="signedIn$ | async" is added for making sign out sign disappeared when it's not logged in-->
-
-      <ng-container >       <!-- *ngIf="!(signedIn$ | async)" -- > 
-        <!-- this line added for showing below menu when it's not logged in-->
-
-        <ng-template #login>
+     
+    <ng-template #login>         
         <li class="nav-item">
-          <a class="nav-link" routerLink="login" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Login</a>
-        </li>
-      </ng-template>
+          <a class="nav-link" routerLink="login" routerLinkActive="active-link" >Login</a>
+        </li>   
+    </ng-template>
+     
 
       <span *ngIf = "!(_userLogin.isUserLoggedin) ">
         <li class="nav-item">
-          <a class="nav-link" routerLink="createAccount" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Create an Account</a>
+          <a class="nav-link" routerLink="createAccount" routerLinkActive="active-link" >Create an Account</a>
         </li>
         </span>
 
         <span *ngIf = "_userLogin.isUserLoggedin ">
         <li class="nav-item">
-          <a class="nav-link" routerLink="userProfile" routerLinkActive="active-link" (click)="isMenuCollapsed = true">My Profile</a>
+          <a class="nav-link" routerLink="userProfile" routerLinkActive="active-link" >My Profile</a>
         </li>
        </span>
 
        <span *ngIf = "_userLogin.isUserLoggedin ">
         <li class="nav-item">
-          <a class="nav-link" routerLink="practice" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Practice</a>
+          <a class="nav-link" routerLink="practice" routerLinkActive="active-link">Practice</a>
         </li>
        </span>
         
-
        <span *ngIf = "_userLogin.isUserLoggedin ">
         <li class="nav-item">
-          <a class="nav-link" routerLink="leaderboard" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Leaderboard</a>
+          <a class="nav-link" routerLink="leaderboard" routerLinkActive="active-link" >Leaderboard</a>
         </li>
       </span>
 
        <span *ngIf = "_userLogin.isUserLoggedin ">
         <li class="nav-item">
-          <a class="nav-link" routerLink="admin" routerLinkActive="active-link" (click)="isMenuCollapsed = true">Admin</a>
+          <a class="nav-link" routerLink="admin" routerLinkActive="active-link" >Admin</a>
         </li>
       </span>
 
 
-      </ng-container>  <!-- this line added for above reason -->
+      <!-- this line added for above reason -->
          
         <!-- TO DO: see above -->
 
