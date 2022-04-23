@@ -65,7 +65,7 @@ namespace Project2API.Controllers
                 else
                 {
                     //Login Incorrect
-                    return Ok(false);
+                    return NoContent();
                 }
             }
             catch (Exception ex)
@@ -121,11 +121,13 @@ namespace Project2API.Controllers
                     account.FirstName = newFirstName;
                     account.LastName = newLastName;
                     dbContext.SaveChanges();
-                    return Ok("Updated Name");
+                    //return Ok("Updated Name");
+                    return Ok(true);
                 }
                 else
                 {
-                    return Ok("Not Found / Error");
+                    //return Ok("Not Found / Error");
+                    return Ok(false);
                 }
             }
             catch (Exception ex)
@@ -208,6 +210,33 @@ namespace Project2API.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("AdminCheck")]
+        public IActionResult CheckAdmin(string email)
+        {
+            try
+            {
+                var admin = (from a in dbContext.LoginTables
+                               where a.Email == email && a.IsAdmin == true
+                               select a).SingleOrDefault();
 
-    }
+                if (admin != null)
+                {
+
+                    dbContext.SaveChanges();
+                    //Is  A Valid Admin
+                    return Ok(true);
+                }
+                else
+                {
+                    //Not admin
+                    return Ok(false);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        }
 }

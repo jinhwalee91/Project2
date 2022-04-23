@@ -4,14 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\components",
-    "\\src\\app\\components\\login",
-    "\\src\\app\\components\\view-login",
+    "\\src\\app\\components\\typing",
     "\\src\\app\\services",
     "\\src\\app\\sharepage",
     "\\src\\app\\sharepage\\navbar",
     "\\src\\assets",
     "\\src\\assets\\img"
   ],
-  "SelectedNode": "\\src\\app\\components\\view-login\\view-login.component.html",
+  "SelectedNode": "\\src\\app\\sharepage\\navbar\\navbar.component.html",
   "PreviewInSolutionExplorer": false
 }
