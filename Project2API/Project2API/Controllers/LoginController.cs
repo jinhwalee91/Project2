@@ -250,5 +250,28 @@ namespace Project2API.Controllers
                 throw new Exception(ex.Message);
             }
         }
+
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public IActionResult DeleteLogin(int id)
+        {
+            var prof = (from e in dbContext.LoginTables
+                        where e.AccountId == id
+                        select e).SingleOrDefault();
+
+            if (prof != null)
+            {
+                dbContext.LoginTables.Remove(prof);
+                dbContext.SaveChanges();
+                //Id was found and deleted
+                return Accepted("", true);
+            }
+            else
+            {
+                //Id not found
+                return NotFound(false);
+            }
+        }
+
         }
 }

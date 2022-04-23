@@ -12,9 +12,9 @@ namespace Project2API.Controllers
         [Route("UserList")]
         public IActionResult GetLoginList()
         {
-            var empList = from e in dbContext.UserProfiles
+            var userList = from e in dbContext.UserProfiles
                           select e;
-            return Ok(empList);
+            return Ok(userList);
         }
 
 
@@ -61,6 +61,28 @@ namespace Project2API.Controllers
             else
                 return BadRequest("Something went wrong");
 
+        }
+
+        [HttpDelete]
+        [Route("RemoveProfile")]
+        public IActionResult deleteProfile(int id)
+        {
+            var prof = (from e in dbContext.UserProfiles
+                       where e.AccountId == id
+                       select e).SingleOrDefault();
+
+            if (prof != null)
+            {
+                dbContext.UserProfiles.Remove(prof);
+                dbContext.SaveChanges();
+                //Id was found and deleted
+                return Accepted("", true);
+            }
+            else
+            {
+                //Id not found
+                return NotFound(false);
+            }
         }
     }
 }
