@@ -15,8 +15,20 @@ namespace Project2API.Controllers
         public IActionResult GetLoginList()
         {
             var empList = from e in dbContext.LoginTables
-                          select e;
+                          join x in dbContext.UserProfiles on e.AccountId equals x.AccountId into accGroup
+                          from x in accGroup.DefaultIfEmpty()
+                          select new { 
+                              e.AccountId,
+                              e.FirstName,
+                              e.LastName,
+                              e.Email,
+                              e.AccountPassword,
+                              e.Gender,
+                              e.IsAdmin,
+                              x.AvatarLink
+                          };
             return Ok(empList);
+
         }
 
         [HttpGet]

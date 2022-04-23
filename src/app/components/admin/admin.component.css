@@ -10,3 +10,25 @@ form {
   
   font-size: medium;
 }
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #C6C6C6;
+}
+
+.profilePic {
+  width: 50px;
+  height: 50px;
+}

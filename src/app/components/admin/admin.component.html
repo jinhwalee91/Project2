@@ -1,6 +1,8 @@
 
-
-<form>
+<!-- BELOW CODE: creates an input form for putting words into the database
+no longer necessary due to random sentence generator, 
+but please keep this code just in case we need it later -->
+<!-- <form>
   <div class="form-group">
     <label for="newWord">Input Words</label>
     <input type="text" class="form-control" id="newWord" aria-describedby="newWordsHelp" placeholder="Input new words here.">
@@ -15,7 +17,7 @@
     <small id="newWordsHelp" class="form-text text-muted">Delete words from the database.</small>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</form> -->
 
 
 <form>
@@ -26,14 +28,16 @@
   <div>
     <table id="usertable" border = "2">
       <tr *ngFor = "let u of allUser">
-      <td> {{u.accountId}} </td>
-      <td> {{u.firstName}} </td>
-      <td> {{u.lastName}} </td>
-      <td> {{u.email}} </td>
-      <td> {{u.accountPassword}} </td>
-      <td> {{u.gender}} </td>
-    </tr>
+        <td> <img src = {{u.avatarLink}} alt = "Avatar" class="profilePic"> <br>
+          <button class="btn btn-primary">Delete User</button></td>
+        <td> {{u.accountId}} </td>
+        <td> {{u.firstName}} </td>
+        <td> {{u.lastName}} </td>
+        <td> {{u.email}} </td>
+        <td> {{u.accountPassword}} </td>
+        <td> {{u.gender}} </td>
+      </tr>
     </table>
-    </div>
+  </div>
 </form>
 
