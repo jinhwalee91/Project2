@@ -2,6 +2,7 @@ import { keyframes } from '@angular/animations';
 import { NONE_TYPE, ViewEncapsulation } from '@angular/compiler';
 import { Component, ElementRef, HostListener, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { sample } from 'rxjs';
+import { GettextService } from 'src/app/services/gettext.service';
 
 @Component({
   selector: 'app-typing',
@@ -21,15 +22,50 @@ export class TypingComponent implements OnInit
   wpm = 0;
   mistypeCounter = 0;
 
-  time = 60;
+  time = 10;
   timerDisplay = true;
 
   outputParagraph!: HTMLElement;
   children!: HTMLCollection;
+  private _textService : GettextService;
 
-  constructor() { }
+  constructor(private _textServ : GettextService) 
+  {
+    this._textService = _textServ;
+  }
 
-  ngOnInit(): void 
+  ngOnInit(): void
+  {
+    this.getTextFromApi();
+    //this.textSetup();
+
+    setInterval(() => {
+      this.time--;
+    }, 1000)
+
+    // call the timeUp function after the timer has reached 0
+    setInterval(() => {
+      if (this.timerDisplay == true)
+      {
+        this.timeUp()
+      }
+    }, (this.time + 1) * 1000)
+  }
+
+  getTextFromApi()
+  {
+    this._textService.getSentences().subscribe((data) => {
+      this.sampleText = data
+      //console.log(this.sampleText);
+    }, (err) => {
+      console.log(err);
+    }, () => {
+      this.textSetup()
+    });
+    //this._textService.getSentences().subscribe({complete: (data) => {this.sampleText = data}})
+  }
+
+  textSetup()
   {
     for(let i = 0; i < this.sampleText.length; i++)
     {
@@ -49,18 +85,6 @@ export class TypingComponent implements OnInit
 
     // and then get its children (every letter separated in their own tags)
     this.children = this.outputParagraph.children;
-
-    setInterval(() => {
-      this.time--;
-    }, 1000)
-
-    // call the timeUp function after the timer has reached 0
-    setInterval(() => {
-      if (this.timerDisplay == true)
-      {
-        this.timeUp()
-      }
-    }, (this.time + 1) * 1000)
   }
 
   @HostListener('window:keyup', ['$event'])
