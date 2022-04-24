@@ -21,14 +21,12 @@
 
  #registrationHeader {
     padding: 40px;
-    color : rgba(58, 203, 247, 0.733) ;
+    color : rgba(58, 236, 213, 0.808)
  }
 
  #submitBtn {
-    background-color: #1d47b9;
+    background-color: #1db954;
     outline: none;
-    margin-top: 40px ;
-
     
 }
 

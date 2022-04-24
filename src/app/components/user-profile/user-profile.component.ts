@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-user-profile',
@@ -11,8 +10,9 @@ export class UserProfileComponent implements OnInit {
   constructor() { }
 
   // to do: http request to GET user profile info
+
   userProfileInfoList = [
-    { userName: LoginComponent.userDetails.firstName, ELOrank: '2,119', WPM: '91', avatarLink: 'https://i.postimg.cc/gJzVLL46/image.png', keyboardLayout: 'QWERTY' }
+    { userName: 'Juliet', ELOrank: '2,119', WPM: '91', avatarLink: 'https://i.postimg.cc/gJzVLL46/image.png', keyboardLayout: 'QWERTY' }
   ]
   userLetterSkillMatrix = [
     {
