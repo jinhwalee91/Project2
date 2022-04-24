@@ -75,6 +75,8 @@ namespace Project2API.Controllers
             {
                 user.Wpm = Convert.ToByte(wpm);
                 user.UserElo = elo;
+                user.KeyboardLayout = "QWERTY";
+
                 dbContext.Update(user);
                 dbContext.SaveChanges();
 
