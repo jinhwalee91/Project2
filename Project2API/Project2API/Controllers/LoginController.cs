@@ -32,7 +32,7 @@ namespace Project2API.Controllers
         }
 
         [HttpGet]
-        [Route("ViewByEmail")]
+        [Route("ViewByEmail/{email}")]
         public IActionResult GetLoginByEmail(string email)
         {
 
