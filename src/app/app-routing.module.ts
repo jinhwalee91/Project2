@@ -15,7 +15,7 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { SignoutComponent } from './components/signout/signout.component';
 
 const routes: Routes = [
-{path : '' , component: HomeComponent},
+{path : '' , redirectTo : 'home', pathMatch : 'full'},    // To make speed up 
 {path:"home", component:HomeComponent},
   { path: 'login', component: LoginComponent }, 
   { path: 'createAccount', component : CreateAccountComponent},
