@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { Users } from 'src/app/models/Users';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-create-account',
@@ -30,6 +31,12 @@ data : any = {
 
 }
 */
+firstname !: string
+lastname ! : string 
+email ! : string
+password ! : string
+gender ! : string
+
 
 
 constructor (private formBuilder: FormBuilder,private http: HttpClient,private router: Router, 
@@ -51,9 +58,9 @@ ngOnInit(): void {
 
 }
 
-/*
+
 signUp() {
-  this.http.post<any>("https://localhost:7274/api/Login/CreateLogin/", this.signupForm.value)
+  this.http.post<any>("https://localhost:7274/api/Login/CreateLogin?firstName=" + this.firstname + "&lastName=" + this.lastname + "&email=" + this.email + "&password=" + this.password +"&gender=" + this.gender, this.signupForm.value)
     .subscribe((res: any) => {
       this.signupForm.reset();
       this.router.navigate(['login'])
@@ -61,7 +68,7 @@ signUp() {
       alert("something went wrong");
     });
 }
-*/
+
 
 /*
 signUp(data : any){
@@ -78,24 +85,25 @@ this._singup.userSignup(data).subscribe( (data)=> {
 }
 */
 
-signUp (firstname : string, lastname : string, email : string, password: string, gender: string){
-  const newUser : Users = {
-    firstname : firstname ,
-    lastname : lastname ,
-    email : email ,
-    password : password ,
-    gender : gender ,
-  };
-  this._singup.userSignup(newUser).subscribe( (user) =>{
-    if(user ==null ){
-      console.log('sign up fail');
-    }else {
-   this._singup.signupDetail = user;
-    }
-  });
 
+/*
+signUp() {
+
+  let url = "https://localhost:7274/api/Login/CreateLogin" 
+
+  this.http.post(url, {
+    firstname : this.firstname,
+    lastname : this.lastname,
+    email : this.email,
+    password : this.password,
+    gender : this.gender
+
+  }).toPromise().then((data : any)=> {
+    console.log(data)
+  })
 }
 
+*/
 
 
 

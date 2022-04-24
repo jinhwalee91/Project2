@@ -14,7 +14,7 @@
 <div class = "banner">
     <div class ="content">
     <h1 id="mainline" style = "font-family: Oleo; color: rgba(230, 210, 32, 0.795);" > Be a typing ninja here, <br> today</h1>
-   <a routerLink = "Login" id="playnow"> Play Now <i class ="bi bi-arrow-right"></i></a>
+   <a  [routerLink]="['/login']" id="playnow" > Play Now <i class ="bi bi-arrow-right"></i></a>  <!-- *ngIf = "_userLogin.isUserLoggedin"-->
 </div>
 </div>
 
@@ -101,4 +101,3 @@
     developed by David, Jinhwa, Justin and Shane who have strong passion to help people to enjoy typing. <br>
     TopTyper is open for everyone 
   </div>
-
