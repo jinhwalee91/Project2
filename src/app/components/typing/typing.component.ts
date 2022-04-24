@@ -3,8 +3,8 @@ import { NONE_TYPE, ViewEncapsulation } from '@angular/compiler';
 import { Component, ElementRef, HostListener, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { sample } from 'rxjs';
 import { GettextService } from 'src/app/services/gettext.service';
-import { AuthGuardService } from 'src/app/services/auth-guard.service';
 import { LoginComponent } from '../login/login.component';
+import { UpdatescoreService } from 'src/app/services/updatescore.service';
 
 @Component({
   selector: 'app-typing',
@@ -30,14 +30,12 @@ export class TypingComponent implements OnInit
   outputParagraph!: HTMLElement;
   children!: HTMLCollection;
   private _textService : GettextService;
-  private _auth : AuthGuardService;
-  private _userLogin : LoginComponent;
+  private _updateService : UpdatescoreService;
 
-  constructor(private _textServ : GettextService, private _authServ : AuthGuardService, private _login : LoginComponent) 
+  constructor(private _textServ : GettextService, private _update : UpdatescoreService) 
   {
     this._textService = _textServ;
-    this._auth = _authServ;
-    this._userLogin = _login;
+    this._updateService = _update;
 
     // this works surprisingly. it gets the logged in user's details
     console.log(LoginComponent.userDetails.accountId);
@@ -152,6 +150,14 @@ export class TypingComponent implements OnInit
     this.wpm = this.inputText.split(" ").length;
     console.log("wpm is: " + this.wpm);
     console.log("mistypes: " + this.mistypeCounter);
+
+    var fakeElo = (this.wpm / (this.mistypeCounter + 1)) * 1000;
+
+    this._updateService.updateScore(LoginComponent.userDetails.accountId, this.wpm, fakeElo).subscribe((data) => {
+      console.log(data);
+    }, (err) => {
+      console.log(err);
+    })
   }
     
 
