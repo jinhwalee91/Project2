@@ -20,6 +20,7 @@ _userLogin : AuthGuardService ;
  loginUser : any ;
  _router : Router;
   static userDetails: any = [];
+  static userLetterScores: any = [];
   static userIsAdmin: boolean = false;
 
   constructor(_userLoginRef : AuthGuardService, private routerRef : Router) {
@@ -40,6 +41,11 @@ _userLogin : AuthGuardService ;
           console.log(data);
           this._userLogin.isUserLoggedin = true;
           this._router.navigateByUrl("/home");
+
+          // this code should grab letter scores and put it into the userLetterScores array
+          this._userLogin.getUserLetterScores(email).subscribe( (data) => {LoginComponent.userLetterScores = data;
+            console.log(LoginComponent.userLetterScores) 
+          });
 
           // the following code should check if admin, and if true, gives access to admin component
           //doesn't actually work yet
