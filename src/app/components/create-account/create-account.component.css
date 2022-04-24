@@ -1,6 +1,6 @@
 .banner {
     background-image: url('../../../assets/img/typing.jpg');
-    height : 600px;
+    height : 1000px;
     background-position: center bottom;
     background-size: cover;
 }
@@ -12,9 +12,10 @@
      background-color: rgba(255, 255, 255, 0.699);
      margin-bottom: 50px;
      border-radius: 5px;
-     border: 2px solid ;
+     border: 0.5px ;
      align-content: center;
-     
+     width : 600px;
+    
  }
  
 
@@ -46,3 +47,4 @@
 align-content: center;
 
 }
+

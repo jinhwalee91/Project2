@@ -5,3 +5,10 @@
     color : var(--primary-color);
   
 }
+
+#login {
+    background-color: rgb(84, 194, 185);
+    border-radius: 10px;
+    color : white
+}
+

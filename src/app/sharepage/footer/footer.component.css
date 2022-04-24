@@ -30,4 +30,5 @@ a:hover {
 
 #footerbox {
     background-color: rgb(241, 241, 241);
+    position : static;
 }
