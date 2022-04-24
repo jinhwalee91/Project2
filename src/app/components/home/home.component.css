@@ -11,6 +11,7 @@
     height : 600px;
     background-position: center bottom;
     background-size: cover;
+    position: relative;
 }
 
 .banner h1 {
@@ -71,7 +72,7 @@
 }
 
 #mainline {
-    margin-bottom: 30px;
+    margin-bottom: 50px ;
 }
 
 #playnow {
