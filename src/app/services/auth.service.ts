@@ -2,7 +2,8 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { first, map } from 'rxjs';
+import { catchError, first, map, Observable } from 'rxjs';
+import { Users } from '../models/Users';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { first, map } from 'rxjs';
 export class AuthService {
 
 private _http : HttpClient; 
-
+signupDetail : any = [];
 
   constructor(private _httpRef : HttpClient) {
     this._http = _httpRef;
@@ -21,14 +22,22 @@ private _http : HttpClient;
     return this._http.get("https://localhost:7274/api/Login/elist");
    }
 
-   
+   /*
    userSignup(data : any){
      return this._http.post<any>("https://localhost:7274/api/Login/CreateLogin" , data)
-     .pipe(map( (res: any) => {
+    .pipe(map( (res: any) => {
        return res;
      } ))
    }
-  
+  */
+
+   userSignup(user : Users) : Observable<Users> {
+    return this._http.post<Users>('https://localhost:7274/api/Login/CreateLogin', user)
+    .pipe(map( (res: any) => {
+      return res;
+    } ))  
+   }
+
 
    userLogin (email : string , password : any) {
       return this._http.get("https://localhost:7274/api/Login/Login/"+email+'/'+ password )

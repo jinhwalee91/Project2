@@ -3,29 +3,29 @@
 <form>
   <h1 id="registrationHeader"> Create an account </h1>
   <div class="container text-center" id="registrationContainer">
-  <form  class="row g-3" [formGroup]="signupForm" (ngSubmit)="signUp()">
+  <form  class="row g-3" [formGroup]="signupForm" (ngSubmit)="signUp(firstname.value , lastname.value , email.value, password.value, gender.value)" >   
     <div> 
       <label for="validationDefault01" class="form-label" >First name</label>
-      <input type="text" class="form-control" formControlName="firstname" >
+      <input type="text" class="form-control" formControlName="firstname" #firstname>
     </div>
 <br>
 
     <div>
       <label for="validationDefault02" class="form-label">Last name</label>
-      <input type="text" class="form-control" formControlName="lastname"  >
+      <input type="text" class="form-control" formControlName="lastname"  #lastname>
     </div>
    
     <div>
       <label for="validationDefaultUsername" class="form-label">E-mail</label>
       <div class="input-group">
         <span class="input-group-text" id="inputGroupPrepend2">@</span>
-        <input type="text" class="form-control"   aria-describedby="inputGroupPrepend2" formControlName="email"  >
+        <input type="text" class="form-control"   aria-describedby="inputGroupPrepend2" formControlName="email" #email >
       </div>
   
     </div>
     <div>
       <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" formControlName="password"  >
+      <input type="password" class="form-control" formControlName="password" #password >
     </div>
 
 
@@ -39,7 +39,7 @@
 
     <div>
       <label for="validationDefault04" class="form-label">Gender</label>
-      <select class="form-select" formControlName="gender" >
+      <select class="form-select" formControlName="gender" #gender>
         <option selected disabled value="">Choose...</option>
         <option selected>Select gender</option>
         <option >Male</option>
