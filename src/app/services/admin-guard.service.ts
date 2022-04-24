@@ -9,11 +9,13 @@ export class AdminGuardService implements CanLoad {
   _userLogin : LoginComponent | undefined;
 
   canLoad(route: Route): boolean {
-    if (route.path == 'admin' && LoginComponent.userIsAdmin == false) { 
-      alert('You are not authorised to visit this page');
-      return false; 
-    } else {
-      return true;
-    }
+    if (route.path == 'admin') { 
+      if( LoginComponent.userIsAdmin == false ){
+        alert('You are not authorised to visit this page');
+        return false; 
+      }
+      else{return true;}
+    } 
+    return false;
   }
 }

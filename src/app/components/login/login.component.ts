@@ -45,13 +45,13 @@ _userLogin : AuthGuardService ;
           this._userLogin.getUserDetails(email).subscribe( (data) => {LoginComponent.userDetails = data;
             console.log(LoginComponent.userDetails) 
           });
-          if(LoginComponent.userDetails.isAdmin == true){ 
-            alert('Welcome admin!');
+          if(LoginComponent.userDetails.isAdmin === 1){ 
             LoginComponent.userIsAdmin = true;
+            alert('Welcome admin!'); 
           }
           else{
-            alert('Welcome user!');
             LoginComponent.userIsAdmin = false;
+            alert('Welcome user!');
           }
 
         }
