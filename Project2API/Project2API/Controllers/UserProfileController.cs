@@ -63,6 +63,29 @@ namespace Project2API.Controllers
 
         }
 
+        [HttpPut]
+        [Route("UpdateScore")]
+        public IActionResult UpdateScore(int userId, int wpm, int elo)
+        {
+            var user = (from u in dbContext.UserProfiles
+                        where u.AccountId == userId
+                        select u).SingleOrDefault();
+
+            if (user != null)
+            {
+                user.Wpm = Convert.ToByte(wpm);
+                user.UserElo = elo;
+                dbContext.Update(user);
+                dbContext.SaveChanges();
+
+                return Ok("User score updated");
+            }
+            else
+            {
+                return BadRequest("Invalid user ID");
+            }
+        }
+
         [HttpDelete]
         [Route("RemoveProfile")]
         public IActionResult deleteProfile(int id)
