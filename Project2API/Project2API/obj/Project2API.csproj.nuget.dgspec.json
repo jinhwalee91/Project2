@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\acuff\\Desktop\\training_sessions\\Project2\\Project2API\\Project2API\\Project2API.csproj": {}
+    "C:\\Users\\Justin\\Desktop\\Project2\\Project2API\\Project2API\\Project2API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\acuff\\Desktop\\training_sessions\\Project2\\Project2API\\Project2API\\Project2API.csproj": {
+    "C:\\Users\\Justin\\Desktop\\Project2\\Project2API\\Project2API\\Project2API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\acuff\\Desktop\\training_sessions\\Project2\\Project2API\\Project2API\\Project2API.csproj",
+        "projectUniqueName": "C:\\Users\\Justin\\Desktop\\Project2\\Project2API\\Project2API\\Project2API.csproj",
         "projectName": "Project2API",
-        "projectPath": "C:\\Users\\acuff\\Desktop\\training_sessions\\Project2\\Project2API\\Project2API\\Project2API.csproj",
-        "packagesPath": "C:\\Users\\acuff\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\acuff\\Desktop\\training_sessions\\Project2\\Project2API\\Project2API\\obj\\",
+        "projectPath": "C:\\Users\\Justin\\Desktop\\Project2\\Project2API\\Project2API\\Project2API.csproj",
+        "packagesPath": "C:\\Users\\Justin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Justin\\Desktop\\Project2\\Project2API\\Project2API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\acuff\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Justin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
