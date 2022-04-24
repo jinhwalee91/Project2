@@ -22,7 +22,7 @@ export class TypingComponent implements OnInit
   wpm = 0;
   mistypeCounter = 0;
 
-  time = 10;
+  time = 30;
   timerDisplay = true;
 
   outputParagraph!: HTMLElement;
