@@ -37,6 +37,7 @@ _userLogin : AuthGuardService ;
         else {
           this._userLogin.userDetail = data ; 
           console.log ('Login successful');
+          console.log(data);
           this._userLogin.isUserLoggedin = true;
           this._router.navigateByUrl("/home");
 
@@ -45,13 +46,13 @@ _userLogin : AuthGuardService ;
           this._userLogin.getUserDetails(email).subscribe( (data) => {LoginComponent.userDetails = data;
             console.log(LoginComponent.userDetails) 
           });
-          if(LoginComponent.userDetails.isAdmin === 1){ 
+          if(LoginComponent.userDetails.isAdmin == true){ 
+            alert('Welcome admin!');
             LoginComponent.userIsAdmin = true;
-            alert('Welcome admin!'); 
           }
           else{
-            LoginComponent.userIsAdmin = false;
             alert('Welcome user!');
+            LoginComponent.userIsAdmin = false;
           }
 
         }

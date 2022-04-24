@@ -3,6 +3,7 @@ import { NONE_TYPE, ViewEncapsulation } from '@angular/compiler';
 import { Component, ElementRef, HostListener, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { sample } from 'rxjs';
 import { GettextService } from 'src/app/services/gettext.service';
+import { AuthGuardService } from 'src/app/services/auth-guard.service';
 
 @Component({
   selector: 'app-typing',
@@ -28,10 +29,16 @@ export class TypingComponent implements OnInit
   outputParagraph!: HTMLElement;
   children!: HTMLCollection;
   private _textService : GettextService;
+  private _auth : AuthGuardService;
 
-  constructor(private _textServ : GettextService) 
+  constructor(private _textServ : GettextService, private _authServ : AuthGuardService) 
   {
     this._textService = _textServ;
+    this._auth = _authServ;
+
+    // this works surprisingly. it gets the logged in user's details
+    // so now all i need to do is change the api to send user id (and whatever else) so i can save that here
+    console.log("detail: " + this._auth.userDetail);
   }
 
   ngOnInit(): void
