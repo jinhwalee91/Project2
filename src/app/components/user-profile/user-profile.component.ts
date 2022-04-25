@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
@@ -8,7 +9,7 @@ import { LoginComponent } from '../login/login.component';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+    constructor() {}  
 
   // to do: http request to GET user profile info
   userProfileInfoList = [

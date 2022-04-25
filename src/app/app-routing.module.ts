@@ -13,6 +13,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { AdminGuardService } from './services/admin-guard.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { SignoutComponent } from './components/signout/signout.component';
+import { UserSettingsComponent } from './components/user-settings/user-settings.component';
 
 const routes: Routes = [
 {path : '' , redirectTo : 'home', pathMatch : 'full'},    // To make speed up 
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'createAccount', component : CreateAccountComponent},
   { path: "practice", component: TypingComponent, canActivate : [AuthGuardService] },
   { path: "leaderboard", component: LeaderboardComponent },
-  { path: "userProfile", component: UserProfileComponent },
+  { path: "userProfile", component: UserProfileComponent  },
+  {path: "settings", component: UserSettingsComponent},
   { path: "ViewLogin", component: ViewLoginComponent},
   { path: "admin", canLoad: [AdminGuardService],
     loadChildren: () => import('./module/auth/auth.module').then(x => x.AuthModule) },
