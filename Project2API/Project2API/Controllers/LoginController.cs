@@ -223,7 +223,7 @@ namespace Project2API.Controllers
 
 
         [HttpPut]
-        [Route("ChangePassword")]
+        [Route("ChangePassword/{email}/{oldPassword}/{newPassword}")]
         public IActionResult ChangePassword(string email, string oldPassword, string newPassword)
         {
             try
