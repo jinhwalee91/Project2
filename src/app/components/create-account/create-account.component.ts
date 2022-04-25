@@ -17,7 +17,6 @@ import { FormsModule } from '@angular/forms';
 export class CreateAccountComponent implements OnInit {
 
    //Property to hold the formGroup
-<<<<<<< HEAD
    // public signupForm !: FormGroup;
 
    public signupForm : any = FormGroup 
@@ -28,18 +27,7 @@ export class CreateAccountComponent implements OnInit {
     email ! : string
     password ! : string
     gender ! : string
-
-=======
-   public signupForm !: FormGroup;
-   firstname : string = "test"
-    lastname  : string  = "testlast"
-    email  : string = "test@mail.com"
-    password  : string  = "password"
-    gender  : string = "male"
-
-    body = {'name': this.firstname, 'last': this.lastname, 'email': this.email, 'pass': this.password, 'gender': this.gender};
->>>>>>> 692071f78ed7ffb9a6172a2e4a6e492dab32c228
-
+    
 
 constructor (private formBuilder: FormBuilder,private http: HttpClient,private router: Router) {
 
@@ -64,12 +52,7 @@ signUp() {
   // i've narrowed the problem down the the post request, i think
   // i tried a json object i built myself, i tried getting rid of all the html and forms entirely and calling signUp fron init
   // and they all give the same error, so it has to be here
-<<<<<<< HEAD
-  return this.http.post<any>("https://localhost:7274/api/Login/CreateLogin/", this.signupForm.value)
-
-=======
   return this.http.post<any>("https://localhost:7274/api/Login/CreateLogin?firstName=" + this.firstname + "&lastName=" + this.lastname + "&email=" + this.email + "&password=" + this.password +"&gender=" + this.gender, this.signupForm.value)
->>>>>>> 692071f78ed7ffb9a6172a2e4a6e492dab32c228
     .subscribe((res: any) => {
       console.log(res);
       //this.signupForm.reset();
