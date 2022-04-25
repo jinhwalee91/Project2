@@ -251,6 +251,38 @@ namespace Project2API.Controllers
 
         }
 
+        [HttpGet]
+        [Route("GetPassword/{email}")]
+        public IActionResult GetPasswordByEmail(string email)
+        {
+            try
+            {
+                var getInfo = (from g in dbContext.LoginTables
+                               where g.Email == email
+                               select new
+                               {
+                                   g.FirstName,
+                                   g.LastName,
+                                   g.Email,
+                                   g.AccountPassword            
+                               }
+                               ).DefaultIfEmpty();
+                
+                if (getInfo != null)
+                {
+                    return Ok(getInfo);
+                }
+                else
+                {
+                    return NotFound("Email Not Found In System");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
 
         //[HttpPost]
         //[Route("CreateLogin")]

@@ -113,6 +113,30 @@ namespace Project2API.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("ChangeAvatar")]
+        public IActionResult ChangeAvatar(int userId, string newAvatar)
+        {
+            var avatar = (from a in dbContext.UserProfiles
+                          where a.AccountId == userId 
+                          select a).SingleOrDefault();
+            if (avatar != null)
+            {
+                avatar.AvatarLink = newAvatar;
+                dbContext.Update(avatar);
+                dbContext.SaveChanges();
+
+                //Avatar Profile Changed
+                return Ok(true);
+            }
+            else
+            {
+                return BadRequest("Something went wrong");
+            }
+                
+        }
+
+
         [HttpDelete]
         [Route("RemoveProfile")]
         public IActionResult deleteProfile(int id)
