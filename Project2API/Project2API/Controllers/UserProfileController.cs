@@ -138,7 +138,7 @@ namespace Project2API.Controllers
 
 
         [HttpDelete]
-        [Route("RemoveProfile")]
+        [Route("RemoveProfile/{id}")]
         public IActionResult deleteProfile(int id)
         {
             var prof = (from e in dbContext.UserProfiles
