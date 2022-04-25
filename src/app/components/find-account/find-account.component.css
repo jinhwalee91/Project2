@@ -29,4 +29,9 @@ h2{
 
 #output {
     margin-top: 30px;
+    font-family: Ubuntu;
+    color : rgba(3, 92, 40, 0.685);
+    background-color: rgba(245, 245, 220, 0.418);
+    border-radius: 10px;
+   
 }

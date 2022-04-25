@@ -19,7 +19,7 @@ this._http = _httpRef
 
 
  findAccount(email : any) {
-  return this._http.get("https://localhost:7274/api/Login/ViewByEmail/" + email)
+  return this._http.get("https://localhost:7274/api/Login/GetPassword/" + email)
  }
 
 }

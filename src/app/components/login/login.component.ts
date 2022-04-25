@@ -47,7 +47,6 @@ _userLogin : AuthGuardService ;
           });
 
           // the following code should check if admin, and if true, gives access to admin component
-          //doesn't actually work yet
             this._userLogin.getUserDetails(email).subscribe( (data) => {LoginComponent.userDetails = data;
               console.log(LoginComponent.userDetails) 
             });

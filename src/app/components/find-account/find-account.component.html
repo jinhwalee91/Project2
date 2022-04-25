@@ -17,7 +17,7 @@
   <button class="btn btn-warning" (click)="findAccount(email.value)">Find Password</button>
 </div>
 
-  <div id="output" *ngFor = "let u of _accountInfo">
+  <div id="output" *ngFor = "let u of _accountInfo ">
    <h3> Hi there! <br> {{u.firstName}} {{u.lastName}}, your password has been sent through your e-mail : <br> "{{u.email}}" </h3>
   </div>
   
