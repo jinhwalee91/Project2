@@ -55,9 +55,24 @@
         </li>
       </span>
 
+      <span *ngIf = "_userLogin.isUserLoggedin">  
+        <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active-link" (click)="exit()" style ="cursor:pointer">Sign Out</a>  
+      </li>
+      </span>
+   
+     
+      <span *ngIf = "!(_userLogin.isUserLoggedin)">
+        <li class="nav-item">
+          <a class="nav-link" id="login" routerLink="login" routerLinkActive="active-link" >Login</a>
+        </li>   
+      </span>
+
+
+      <!-- 
       <span *ngIf = "_userLogin.isUserLoggedin ; else login">  
         <li class="nav-item">
-        <a class="nav-link" routerLinek ="" routerLinkActive="active-link" (click)="exit()" >Sign Out</a>  
+        <a class="nav-link" routerLinek ="" routerLinkActive="active-link" (click)="exit()" style ="cursor:pointer">Sign Out</a>  
       </li>
       </span>
    
@@ -67,6 +82,8 @@
           <a class="nav-link" id="login" routerLink="login" routerLinkActive="active-link" >Login</a>
         </li>   
     </ng-template>
+    -->
+
 
 
       <!-- this line added for above reason -->

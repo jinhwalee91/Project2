@@ -27,8 +27,7 @@ export class NavbarComponent implements OnInit {
   
    exit() {
     window.location.reload();
-     this._router.navigateByUrl("/home")
-
+    localStorage.removeItem('token')
    }
 
     ngOnInit(): void {                                             
