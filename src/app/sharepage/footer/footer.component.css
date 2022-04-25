@@ -32,3 +32,13 @@ a:hover {
     background-color: rgb(241, 241, 241);
     position : static;
 }
+
+.col-lg-6 {
+    text-align: left;
+}
+
+.col-lg-4 {
+    text-align: right;
+}
+
+
