@@ -5,6 +5,7 @@ import { sample } from 'rxjs';
 import { GettextService } from 'src/app/services/gettext.service';
 import { LoginComponent } from '../login/login.component';
 import { UpdatescoreService } from 'src/app/services/updatescore.service';
+import { HashTable } from 'angular-hashtable';
 
 @Component({
   selector: 'app-typing',
@@ -23,6 +24,7 @@ export class TypingComponent implements OnInit
   currentStyle = "correct";
   wpm = 0;
   mistypeCounter = 0;
+  letterScores = new HashTable<string, number>();
 
   time = 30;
   timerDisplay = true;
@@ -37,14 +39,39 @@ export class TypingComponent implements OnInit
     this._textService = _textServ;
     this._updateService = _update;
 
-    // this works surprisingly. it gets the logged in user's details
-    console.log(LoginComponent.userDetails.accountId);
+    this.letterScores.put('a', 0)
+    this.letterScores.put('b', 0)
+    this.letterScores.put('c', 0)
+    this.letterScores.put('d', 0)
+    this.letterScores.put('e', 0)
+    this.letterScores.put('f', 0)
+    this.letterScores.put('g', 0)
+    this.letterScores.put('h', 0)
+    this.letterScores.put('i', 0)
+    this.letterScores.put('j', 0)
+    this.letterScores.put('k', 0)
+    this.letterScores.put('l', 0)
+    this.letterScores.put('m', 0)
+    this.letterScores.put('n', 0)
+    this.letterScores.put('o', 0)
+    this.letterScores.put('p', 0)
+    this.letterScores.put('q', 0)
+    this.letterScores.put('r', 0)
+    this.letterScores.put('s', 0)
+    this.letterScores.put('t', 0)
+    this.letterScores.put('u', 0)
+    this.letterScores.put('v', 0)
+    this.letterScores.put('w', 0)
+    this.letterScores.put('x', 0)
+    this.letterScores.put('y', 0)
+    this.letterScores.put('z', 0)
   }
 
   ngOnInit(): void
   {
     this.getTextFromApi();
-    //this.textSetup();
+    
+    //console.log("asdfsadf " + typeof(this.letterScores))
 
     setInterval(() => {
       this.time--;
@@ -131,14 +158,27 @@ export class TypingComponent implements OnInit
   // change style based on whether the key pressed was correct or not
   checkKey(event:KeyboardEvent, index:number)
   {
+    var curLetterScore = this.letterScores.get(event.key.toString());
+
+    // +1 to letter score when correct, -1 when incorrect
     if (event.key.toString() == this.sampleText[index])
     {
       this.currentStyle = 'correct';
+
+      if (curLetterScore < 100)
+      {
+        this.letterScores.put(event.key.toString(), (curLetterScore + 1))
+      }
     }
     else
     {
       this.currentStyle = 'incorrect';
       this.mistypeCounter++;
+
+      if (curLetterScore > 0)
+      {
+        this.letterScores.put(event.key.toString(), (curLetterScore - 1))
+      }
     }
   }
 
@@ -153,7 +193,9 @@ export class TypingComponent implements OnInit
 
     var fakeElo = (this.wpm / (this.mistypeCounter + 1)) * 1000;
 
-    this._updateService.updateScore(LoginComponent.userDetails.accountId, this.wpm, fakeElo).subscribe((data) => {
+    // +1 to letter score when correct, -1 when incorrect
+
+    this._updateService.updateScore(LoginComponent.userDetails.accountId, this.wpm, fakeElo, this.letterScores).subscribe((data) => {
       console.log(data);
     }, (err) => {
       console.log(err);
