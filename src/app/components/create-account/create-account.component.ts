@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms"
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -27,9 +26,10 @@ export class CreateAccountComponent implements OnInit {
     password ! : string
     gender ! : string
     
+    _authService : AuthService
 
-constructor (private formBuilder: FormBuilder,private http: HttpClient,private router: Router) {
-
+constructor (private formBuilder: FormBuilder,private http: HttpClient,private router: Router, _authSerRef : AuthService) {
+ this._authService = _authSerRef
 }
 
    
@@ -46,71 +46,16 @@ ngOnInit(): void {
 
 }
 
-/*
-signUp() {
-  // i've narrowed the problem down the the post request, i think
-  // i tried a json object i built myself, i tried getting rid of all the html and forms entirely and calling signUp fron init
-  // and they all give the same error, so it has to be here
-  return this.http.post<any>("https://localhost:7274/api/Login/CreateLogin?firstName=" + this.firstname + "&lastName=" + this.lastname + "&email=" + this.email + "&password=" + this.password +"&gender=" + this.gender, this.signupForm.value)
-    .subscribe((res: any) => {
-      console.log(res);
-      //this.signupForm.reset();
-      this.router.navigate(['login'])
-    }, (err: any) => {
-      alert("something went wrong");
-      console.log(err);
-    });
+
+signUp(firstname : any, lastname: any, email :any, password : any, gender : any){
+this._authService.createAccount(firstname , lastname, email, password, gender).subscribe((data) =>{
+  console.log(data);
+  this.router.navigate(['login'])
+}, (err) => {
+  console.log(err);
+
+})
 }
-*/
-
-
-/*
-signUp(data : any){
-this._singup.userSignup(data).subscribe( (data)=> {
-  if(data == null) {
-    console.log('Signed up failed');
-  }
-  else {
-    this._singup.signupDetail = data ; 
-    console.log('Sign up success');
-    this.router.navigateByUrl("/login");
-  }
-} )
-}
-*/
-
-
-/*
-signUp() {
-
-  let url = "https://localhost:7274/api/Login/CreateLogin" 
-
-  this.http.post(url, {
-    firstname : this.firstname,
-    lastname : this.lastname,
-    email : this.email,
-    password : this.password,
-    gender : this.gender
-
-  }).toPromise().then((data : any)=> {
-    console.log(data)
-  })
-}
-
-*/
-
-signUp() {
-  this.http.post("https://localhost:7274/api/Login/CreateLogin?firstName=" + this.firstname + "&lastName=" + this.lastname + "&email=" + this.email + "&password=" + this.password +"&gender=" + this.gender, this.signupForm.value, 
-  {responseType : 'text'})
-    .subscribe((res: any) => {
-    //  this.signupForm.reset();
-    console.log(this.signupForm.value);
-      this.router.navigate(['login'])
-    }, (err: any) => {
-      alert("something went wrong");
-    });
-}
-
   
 
 

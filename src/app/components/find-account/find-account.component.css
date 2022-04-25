@@ -5,3 +5,9 @@
     background-size: cover;
     
 }
+
+h1{
+    text-align: center;
+    font-family : Oleo ;
+    color : rgba(243, 147, 83, 0.795)
+}

@@ -1,13 +1,23 @@
 <div class="banner">
-
-<p>find-account works!</p>
-
-<input type ="text" #email>
-<button (click)="findAccount(email.value)">Click Me</button>
+<br><br>
+  
 
 
+<div class="container text-center" id="findaccount-container">
+  <h1>Forgot your password ?</h1>
+<form > 
+<input type ="text" placeholder = "Enter your E-mail" #email>
 
-  <div *ngFor = "let u of _accountInfo">
+
+
+<div class="col-md-15">
+  <label for="validationDefault01" class="form-label" >E-mail</label>
+  <input type="text" required name ="email" placeholder ="Enter E-mail"  #email class="form-control" ngModel>
+  <button (click)="findAccount(email.value)"> submit </button>
+</div>
+
+
+<div *ngFor = "let u of _accountInfo">
  Hello {{u.firstName}}    
   {{u.firstName}}    
  
@@ -16,6 +26,9 @@
 
   </div>
 
+  </form>
+
+</div>
   
 </div>
 
