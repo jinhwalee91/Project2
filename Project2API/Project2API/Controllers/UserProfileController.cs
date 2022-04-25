@@ -90,17 +90,45 @@ namespace Project2API.Controllers
 
         [HttpPut]
         [Route("UpdateScore")]
-        public IActionResult UpdateScore(int userId, int wpm, int elo)
+        public IActionResult UpdateScore(int userId, int wpm, int elo, byte a, byte b, byte c, byte d, byte e, byte f, byte g, byte h, byte i, byte j, byte k, byte l, byte m,
+                                            byte n, byte o, byte p, byte q, byte r, byte s, byte t, byte u, byte v, byte w, byte x, byte y, byte z)
         {
-            var user = (from u in dbContext.UserProfiles
-                        where u.AccountId == userId
-                        select u).SingleOrDefault();
+            var user = (from usr in dbContext.UserProfiles
+                        where usr.AccountId == userId
+                        select usr).SingleOrDefault();
 
             if (user != null)
             {
                 user.Wpm = Convert.ToByte(wpm);
                 user.UserElo = elo;
                 user.KeyboardLayout = "QWERTY";
+
+                user.A = a;
+                user.B = b;
+                user.C = c;
+                user.D = d;
+                user.E = e;
+                user.F = f;
+                user.G = g;
+                user.H = h;
+                user.I = i;
+                user.J = j;
+                user.K = k;
+                user.L = l;
+                user.M = m;
+                user.N = n;
+                user.O = o;
+                user.P = p;
+                user.Q = q;
+                user.R = r;
+                user.S = s;
+                user.T = t;
+                user.U = u;
+                user.V = v;
+                user.W = w;
+                user.X = x;
+                user.Y = y;
+                user.Z = z;
 
                 dbContext.Update(user);
                 dbContext.SaveChanges();
