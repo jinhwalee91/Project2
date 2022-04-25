@@ -70,7 +70,7 @@ namespace Project2API.Controllers
 
             UserProfile newUser = new UserProfile();
             newUser.AccountId = id;
-            newUser.AvatarLink = "Default";
+            newUser.AvatarLink = "https://i.postimg.cc/Gmnz32cT/default.png";
             newUser.UserElo = 1000;
             newUser.Wpm = 0;
             newUser.KeyboardLayout = "QWERTY";
