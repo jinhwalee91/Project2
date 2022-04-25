@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\julie\\Desktop\\PJT\\Project2\\Project2API\\Project2API\\Project2API.csproj": {}
+    "R:\\RevatureProjects\\Project2\\Project2API\\Project2API\\Project2API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\julie\\Desktop\\PJT\\Project2\\Project2API\\Project2API\\Project2API.csproj": {
+    "R:\\RevatureProjects\\Project2\\Project2API\\Project2API\\Project2API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\julie\\Desktop\\PJT\\Project2\\Project2API\\Project2API\\Project2API.csproj",
+        "projectUniqueName": "R:\\RevatureProjects\\Project2\\Project2API\\Project2API\\Project2API.csproj",
         "projectName": "Project2API",
-        "projectPath": "C:\\Users\\julie\\Desktop\\PJT\\Project2\\Project2API\\Project2API\\Project2API.csproj",
-        "packagesPath": "C:\\Users\\julie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\julie\\Desktop\\PJT\\Project2\\Project2API\\Project2API\\obj\\",
+        "projectPath": "R:\\RevatureProjects\\Project2\\Project2API\\Project2API\\Project2API.csproj",
+        "packagesPath": "C:\\Users\\Shane LeGrand\\.nuget\\packages\\",
+        "outputPath": "R:\\RevatureProjects\\Project2\\Project2API\\Project2API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\julie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Shane LeGrand\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -87,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

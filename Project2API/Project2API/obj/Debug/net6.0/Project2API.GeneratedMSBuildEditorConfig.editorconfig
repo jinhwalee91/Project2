@@ -8,9 +8,17 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Project2API
 build_property.RootNamespace = Project2API
+<<<<<<< HEAD
 build_property.ProjectDir = c:\Users\julie\Desktop\PJT\Project2\Project2API\Project2API\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = c:\Users\julie\Desktop\PJT\Project2\Project2API\Project2API
+=======
+build_property.ProjectDir = R:\RevatureProjects\Project2\Project2API\Project2API\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = R:\RevatureProjects\Project2\Project2API\Project2API
+>>>>>>> 26ff635bba1407e7e38b82e6f6ebb281c78f5d5f
 build_property._RazorSourceGeneratorDebug = 

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { HashTable } from 'angular-hashtable';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +16,9 @@ export class UpdatescoreService {
     this._http = _httpRef;
   }
 
-  updateScore(userID : number, wpm: number, elo: number)
+  updateScore(userID : number, wpm: number, elo: number, letterTable : HashTable<string, number>)
   {
-    var body = {userID, wpm, elo};
+    var body = {userID, wpm, elo, letterTable};
 
     return this._http.put("https://localhost:7274/UpdateScore?userId=" + userID + "&wpm=" + wpm + "&elo=" + elo, body);
   }
