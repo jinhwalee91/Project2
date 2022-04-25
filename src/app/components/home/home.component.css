@@ -71,12 +71,13 @@
 
 }
 
-.step-box h1 {
-    color : white
-}
 
 .step-box p {
     color : white;
+}
+
+.step {
+    font-family: Ubuntu;
 }
 
 @font-face {
@@ -142,3 +143,14 @@ a{
     #description {
         text-align: center;
     }
+
+    h2{
+        color : white;
+        text-align: center;
+    }
+
+
+p{
+    text-align: center;
+    font-size: 20px;
+}
