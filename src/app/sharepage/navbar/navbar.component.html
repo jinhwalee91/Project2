@@ -19,21 +19,7 @@
         ie, if the user is logged in, show only 'userProfile'
         and, if the user is not logged in, show 'login' and 'createAccount'
       -->
-  
-      <span *ngIf = "_userLogin.isUserLoggedin ; else login">  
-        <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active-link" (click)="exit()" >Sign Out</a>  
-      </li>
-      </span>
-   
 
-     
-    <ng-template #login>         
-        <li class="nav-item">
-          <a class="nav-link" id="login" routerLink="login" routerLinkActive="active-link" >Login</a>
-        </li>   
-    </ng-template>
-     
 
       <span *ngIf = "!(_userLogin.isUserLoggedin) ">
         <li class="nav-item">
@@ -46,6 +32,21 @@
           <a class="nav-link" routerLink="userProfile" routerLinkActive="active-link" >My Profile</a>
         </li>
        </span>
+
+  
+       <span *ngIf = "_userLogin.isUserLoggedin ; else login">  
+        <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active-link" (click)="exit()" >Sign Out</a>  
+      </li>
+      </span>
+   
+     
+    <ng-template #login>         
+        <li class="nav-item">
+          <a class="nav-link" id="login" routerLink="login" routerLinkActive="active-link" >Login</a>
+        </li>   
+    </ng-template>
+     
 
        <span *ngIf = "_userLogin.isUserLoggedin ">
         <li class="nav-item">
@@ -74,10 +75,12 @@
 
 
       </ul>
+      <!--
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" (click)="isMenuCollapsed = true" >
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+      -->
     </div>
   </div>
   </nav>
