@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms"
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { Users } from 'src/app/models/Users';
 import { FormsModule } from '@angular/forms';
 
 
