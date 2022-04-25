@@ -21,14 +21,6 @@ private _http : HttpClient;
     return this._http.get("https://localhost:7274/api/Login/elist");
    }
 
-   
-   userSignup(data : any){
-     return this._http.post<any>("https://localhost:7274/api/Login/CreateLogin" , data)
-     .pipe(map( (res: any) => {
-       return res;
-     } ))
-   }
-  
 
    userLogin (email : string , password : any) {
       return this._http.get("https://localhost:7274/api/Login/Login/"+email+'/'+ password )

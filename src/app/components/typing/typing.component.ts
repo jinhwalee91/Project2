@@ -2,6 +2,9 @@ import { keyframes } from '@angular/animations';
 import { NONE_TYPE, ViewEncapsulation } from '@angular/compiler';
 import { Component, ElementRef, HostListener, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { sample } from 'rxjs';
+import { GettextService } from 'src/app/services/gettext.service';
+import { LoginComponent } from '../login/login.component';
+import { UpdatescoreService } from 'src/app/services/updatescore.service';
 
 @Component({
   selector: 'app-typing',
@@ -21,15 +24,55 @@ export class TypingComponent implements OnInit
   wpm = 0;
   mistypeCounter = 0;
 
-  time = 60;
+  time = 30;
   timerDisplay = true;
 
   outputParagraph!: HTMLElement;
   children!: HTMLCollection;
+  private _textService : GettextService;
+  private _updateService : UpdatescoreService;
 
-  constructor() { }
+  constructor(private _textServ : GettextService, private _update : UpdatescoreService) 
+  {
+    this._textService = _textServ;
+    this._updateService = _update;
 
-  ngOnInit(): void 
+    // this works surprisingly. it gets the logged in user's details
+    console.log(LoginComponent.userDetails.accountId);
+  }
+
+  ngOnInit(): void
+  {
+    this.getTextFromApi();
+    //this.textSetup();
+
+    setInterval(() => {
+      this.time--;
+    }, 1000)
+
+    // call the timeUp function after the timer has reached 0
+    setInterval(() => {
+      if (this.timerDisplay == true)
+      {
+        this.timeUp()
+      }
+    }, (this.time + 1) * 1000)
+  }
+
+  getTextFromApi()
+  {
+    this._textService.getSentences().subscribe((data) => {
+      this.sampleText = data
+      //console.log(this.sampleText);
+    }, (err) => {
+      console.log(err);
+    }, () => {
+      this.textSetup()
+    });
+    //this._textService.getSentences().subscribe({complete: (data) => {this.sampleText = data}})
+  }
+
+  textSetup()
   {
     for(let i = 0; i < this.sampleText.length; i++)
     {
@@ -49,18 +92,6 @@ export class TypingComponent implements OnInit
 
     // and then get its children (every letter separated in their own tags)
     this.children = this.outputParagraph.children;
-
-    setInterval(() => {
-      this.time--;
-    }, 1000)
-
-    // call the timeUp function after the timer has reached 0
-    setInterval(() => {
-      if (this.timerDisplay == true)
-      {
-        this.timeUp()
-      }
-    }, (this.time + 1) * 1000)
   }
 
   @HostListener('window:keyup', ['$event'])
@@ -119,6 +150,14 @@ export class TypingComponent implements OnInit
     this.wpm = this.inputText.split(" ").length;
     console.log("wpm is: " + this.wpm);
     console.log("mistypes: " + this.mistypeCounter);
+
+    var fakeElo = (this.wpm / (this.mistypeCounter + 1)) * 1000;
+
+    this._updateService.updateScore(LoginComponent.userDetails.accountId, this.wpm, fakeElo).subscribe((data) => {
+      console.log(data);
+    }, (err) => {
+      console.log(err);
+    })
   }
     
 

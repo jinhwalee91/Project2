@@ -5,3 +5,14 @@
     color : var(--primary-color);
   
 }
+
+#login {
+    background-color: rgb(84, 194, 185);
+    border-radius: 10px;
+    color : white
+}
+
+.nav-item {
+    font-family :'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-right: 20px ;
+}

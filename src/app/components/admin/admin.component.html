@@ -21,12 +21,19 @@ but please keep this code just in case we need it later -->
 
 
 <form>
-  <div class="from">
-    <label for="getusers">User List </label>    
-  </div>
-  <button class="btn btn-primary" (click) ="showAllUser()">Get Users</button>
+  <button class="btn btn-primary" (click) ="showAllUser()" onclick="style.display = 'none'">Get User List</button>
   <div>
     <table id="usertable" border = "2">
+      <tr>
+        <td><b>Avatar</b></td>
+        <td><b>Account Number</b></td>
+        <td><b>First Name</b></td>
+        <td><b>Last Name</b></td>
+        <td><b>Email</b></td>
+        <td><b>Password</b></td>
+        <td><b>Gender</b></td>
+        <td><b>Account Type</b></td>
+      </tr>
       <tr *ngFor = "let u of allUser">
         <td> <img src = {{u.avatarLink}} alt = "Avatar" class="profilePic"> <br>
           <button class="btn btn-primary">Delete User</button></td>
@@ -36,6 +43,7 @@ but please keep this code just in case we need it later -->
         <td> {{u.email}} </td>
         <td> {{u.accountPassword}} </td>
         <td> {{u.gender}} </td>
+        <td> {{u.isAdmin == 1 ? "Administrator" : "User"}} </td>
       </tr>
     </table>
   </div>

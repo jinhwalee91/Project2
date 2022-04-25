@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
-import { UserService } from '../../services/user.service';      // added for making disappear sign out sign when log in
-import { BehaviorSubject } from 'rxjs';    // added for making disappear sign out sign when log in
+import { UserService } from '../../services/user.service';     
 import { AuthGuardService } from 'src/app/services/auth-guard.service';
+import { CanActivate, Router,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -12,32 +13,28 @@ import { AuthGuardService } from 'src/app/services/auth-guard.service';
 export class NavbarComponent implements OnInit {
 
   public isMenuCollapsed = true;
-  
 
-  signedIn$: BehaviorSubject<boolean>   // added for making disappear sign out sign when log in
   
   _userLogin : AuthGuardService ;
+  _router : Router;
+
+
     
-    constructor(private authService: UserService, _userLoginRef : AuthGuardService) {  // added for making disappear sign out sign when log in
-      this.signedIn$ = this.authService.signedIn$ ;
-      this._userLogin = _userLoginRef    // added for making disappear sign out sign when log in
+    constructor(private authService: UserService, _userLoginRef : AuthGuardService, private routerRef : Router) {  
+      this._userLogin = _userLoginRef    ;
+      this._router = routerRef
     }  
   
-   
+   exit() {
+    window.location.reload();
+     this._router.navigateByUrl("/home")
 
-    ngOnInit(): void {                                              // added for making disappear sign out sign when log in
-      this.authService.signedIn().subscribe(()=>{})                // added for making disappear sign out sign when log in
+   }
+
+    ngOnInit(): void {                                             
+      
     }
 
   }
 
-/*
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
-
-*/

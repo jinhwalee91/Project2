@@ -32,16 +32,88 @@ namespace Project2API.Controllers
         }
 
         [HttpGet]
-        [Route("ViewByEmail")]
+        [Route("GetLetterScores/{email}")]
+        public IActionResult GetLetterScores(string email)
+        {
+
+
+            try
+            {
+                var emp =
+                    (from e in dbContext.LoginTables
+                    where e.Email == email
+                    join x in dbContext.UserProfiles on e.AccountId equals x.AccountId
+                    select new { 
+                              x.A,
+                              x.B,
+                              x.C,
+                              x.D,
+                              x.E,
+                              x.F,
+                              x.G,
+                              x.H,
+                              x.I,
+                              x.J,
+                              x.K,
+                              x.L,
+                              x.M,
+                              x.N,
+                              x.O,
+                              x.P,
+                              x.Q,
+                              x.R,
+                              x.S,
+                              x.T,
+                              x.U,
+                              x.V,
+                              x.W,
+                              x.X,
+                              x.Y,
+                              x.Z
+                          }
+                    ).DefaultIfEmpty();
+
+                if (emp != null)
+                {
+                    return Ok(emp);
+                }
+                else
+                {
+                    return NotFound("Email Not found in system");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("ViewByEmail/{email}")]
         public IActionResult GetLoginByEmail(string email)
         {
 
 
             try
             {
-                var emp = (from e in dbContext.LoginTables
-                           where e.Email == email
-                           select e).SingleOrDefault();
+                var emp =
+                    (from e in dbContext.LoginTables
+                    where e.Email == email
+                    join x in dbContext.UserProfiles on e.AccountId equals x.AccountId
+                    select new { 
+                              e.AccountId,
+                              e.FirstName,
+                              e.LastName,
+                              e.Email,
+                              e.AccountPassword,
+                              e.Gender,
+                              e.IsAdmin,
+                              x.AvatarLink,
+                              x.UserElo,
+                              x.Wpm,
+                              x.KeyboardLayout
+                          }
+                    ).DefaultIfEmpty();
 
                 if (emp != null)
                 {
@@ -250,5 +322,28 @@ namespace Project2API.Controllers
                 throw new Exception(ex.Message);
             }
         }
+
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public IActionResult DeleteLogin(int id)
+        {
+            var prof = (from e in dbContext.LoginTables
+                        where e.AccountId == id
+                        select e).SingleOrDefault();
+
+            if (prof != null)
+            {
+                dbContext.LoginTables.Remove(prof);
+                dbContext.SaveChanges();
+                //Id was found and deleted
+                return Accepted("", true);
+            }
+            else
+            {
+                //Id not found
+                return NotFound(false);
+            }
+        }
+
         }
 }

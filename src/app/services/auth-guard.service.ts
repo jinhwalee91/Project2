@@ -37,6 +37,12 @@ export class AuthGuardService implements CanActivate{
     let url = "https://localhost:7274/api/Login/Login/"+email+'/'+ password ;
     return this._http.get(url);
            };
+    getUserDetails (email : string) {
+    return this._http.get("https://localhost:7274/api/Login/ViewByEmail/"+email);
+           };
+    getUserLetterScores (email : string) {
+    return this._http.get("https://localhost:7274/api/Login/GetLetterScores/"+email);
+           };
         
 
   

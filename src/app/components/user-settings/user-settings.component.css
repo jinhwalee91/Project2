@@ -1,10 +1,5 @@
-/*
-.login-button{
-    background-color:#1db954;
-}
-*/
 
-#login-container  {
+#settings-container  {
     margin-top: 50px;
     padding: 40px;
     background-color: rgba(255, 255, 255, 0.699);
@@ -20,14 +15,6 @@ h1{
     text-align: center;
     font-family: Oleo;
     color : rgb(84, 194, 185)
-}
-
-.banner {
-    background-image: url('../../../assets/img/typing.jpg');
-    height : 600px;
-    background-position: center bottom;
-    background-size: cover;
-    
 }
 
 @font-face {

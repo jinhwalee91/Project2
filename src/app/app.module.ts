@@ -21,6 +21,7 @@ import { CommonModule } from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { AuthService } from './services/auth.service';
 import { SignoutComponent } from './components/signout/signout.component';
+import { UserSettingsComponent } from './components/user-settings/user-settings.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SignoutComponent } from './components/signout/signout.component';
     LeaderboardComponent,
     UserProfileComponent,
     ViewLoginComponent,
-    SignoutComponent
+    SignoutComponent,
+    UserSettingsComponent
   ],
   imports: [
     BrowserModule,

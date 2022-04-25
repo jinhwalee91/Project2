@@ -19,6 +19,9 @@ export class LoginComponent implements OnInit {
 _userLogin : AuthGuardService ;
  loginUser : any ;
  _router : Router;
+  static userDetails: any = [];
+  static userLetterScores: any = [];
+  static userIsAdmin: boolean = false;
 
   constructor(_userLoginRef : AuthGuardService, private routerRef : Router) {
     this._userLogin = _userLoginRef
@@ -30,19 +33,44 @@ _userLogin : AuthGuardService ;
       this._userLogin.userLogin(email, password).subscribe( (data) =>{
         if(data == null ) {
           console.log('User not found, login failed');
+          alert('Login failed');
         }
         else {
           this._userLogin.userDetail = data ; 
           console.log ('Login successful');
+          console.log(data);
           this._userLogin.isUserLoggedin = true;
           this._router.navigateByUrl("/home");
+
+          // this code should grab letter scores and put it into the userLetterScores array
+          this._userLogin.getUserLetterScores(email).subscribe( (data) => {LoginComponent.userLetterScores = data;
+            console.log(LoginComponent.userLetterScores) 
+          });
+
+          // the following code should check if admin, and if true, gives access to admin component
+          //doesn't actually work yet
+          this._userLogin.getUserDetails(email).subscribe( (data) => {LoginComponent.userDetails = data;
+            console.log(LoginComponent.userDetails) 
+          });
+          if(LoginComponent.userDetails.isAdmin == true){ 
+            alert('Welcome admin!');
+            LoginComponent.userIsAdmin = true;
+          }
+          else{
+            alert('Welcome user!');
+            LoginComponent.userIsAdmin = false;
+          }
+
         }
 
       },(err) => {
         console.log('Login failed');
+        alert('Login failed');
       });
 
-      };
+  };
+  
+  
 
 
 

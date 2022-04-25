@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthGuardService } from 'src/app/services/auth-guard.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  _userLogin : AuthGuardService ;
+
+  constructor(_userLoginRef : AuthGuardService) 
+  {
+    this._userLogin = _userLoginRef
+   }
+
 
   ngOnInit(): void {
   }

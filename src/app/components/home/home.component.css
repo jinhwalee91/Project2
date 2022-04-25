@@ -6,12 +6,30 @@
 }
 
 
-.banner {
-    background-image: url('../../../assets/img/typing.jpg');
+.banner  {
+    background-image: url('../../../assets/img/main2.jpg');
     height : 600px;
     background-position: center bottom;
     background-size: cover;
+    position: relative;
 }
+
+.banner2  {
+    background-image: url('../../../assets/img/main.jpg');
+    height : 600px;
+    background-position : top center;
+    background-size: cover;
+    position: relative;
+}
+
+.banner3  {
+    background-image: url('../../../assets/img/main3.jpg');
+    height : 600px;
+    background-position : bottom;
+    background-size: cover;
+    position: relative;
+}
+
 
 .banner h1 {
     color: white;
@@ -71,7 +89,25 @@
 }
 
 #mainline {
-    margin-bottom: 30px;
+    margin-bottom: 50px ;
+}
+
+#mainline2 {
+    text-align: left;
+    position: relative;
+    margin: -150px 0px 7px -130px;
+    border-radius: 10px;
+
+}
+
+#mainline3 {
+    text-align: left;
+    position: relative;
+    margin-left: 200px;
+    margin-top: 200px ;
+    border-radius: 10px;
+    text-shadow: rgba(255, 255, 255, 0.733);
+   
 }
 
 #playnow {
@@ -83,55 +119,26 @@ a{
     border-radius: 5px;
 }
 
+#intro-picture {
+    width: 600px;
+}
+
+#introduction {
+    margin-top: 40px; 
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+    color : rgba(128, 128, 128, 0.74)
+   }
 
 
-
-
-
-/* Below is for Carousel option... active if you want change the banner     */
-/*
-  
- img {  
+   #whatistoptyper{
+    font-size: 25px;
+    font-style: bold;
+    color :rgba(128, 128, 128, 0.986);
+    text-align: center;
+    margin-bottom: 15px;
+    }
     
-    width: 100%;
-    height : 600px;
-    background-position: center;
-    background-size: cover;
-    
-    
-  }
-
-  .carousel-inner {
-    overflow: visible;
-  }
-  
-  .carousel-item {
-    display: flex !important;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 1.2s ease-in-out, visibility 1.2s;
-    z-index: -1;
-    
-  }
-  
-  .carousel-item.active{
-    opacity: 1;
-    visibility: visible;
-    z-index: 10;
-  }
-  
-  .carousel-control-prev {
-     z-index: 20;
-  }
-  
-  .carousel-control-next {
-     z-index: 20;
-  }
-  
-  .carousel-indicators{
-    z-index: 20;
-  }
-
-
-
-  */
+    #description {
+        text-align: center;
+    }
