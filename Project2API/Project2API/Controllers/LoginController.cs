@@ -251,7 +251,7 @@ namespace Project2API.Controllers
 
         }
 
-        [HttpGet]
+             [HttpGet]
         [Route("GetPassword/{email}")]
         public IActionResult GetPasswordByEmail(string email)
         {
@@ -266,7 +266,7 @@ namespace Project2API.Controllers
                                    g.Email,
                                    g.AccountPassword            
                                }
-                               ).DefaultIfEmpty();
+                               ).SingleOrDefault();
                 
                 if (getInfo != null)
                 {
