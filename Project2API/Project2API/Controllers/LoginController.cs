@@ -266,7 +266,7 @@ namespace Project2API.Controllers
                                    g.Email,
                                    g.AccountPassword            
                                }
-                               ).SingleOrDefault();
+                               ).DefaultIfEmpty();
                 
                 if (getInfo != null)
                 {
