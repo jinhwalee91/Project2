@@ -13,11 +13,13 @@ import { AdminComponent } from './components/admin/admin.component';
 import { AdminGuardService } from './services/admin-guard.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { SignoutComponent } from './components/signout/signout.component';
+import { FindAccountComponent } from './components/find-account/find-account.component';
 
 const routes: Routes = [
 {path : '' , redirectTo : 'home', pathMatch : 'full'},    // To make speed up 
 {path:"home", component:HomeComponent},
-  { path: 'login', component: LoginComponent }, 
+  { path: 'login', component: LoginComponent} ,
+  {path : 'findAccount', component : FindAccountComponent }, 
   { path: 'createAccount', component : CreateAccountComponent},
   { path: "practice", component: TypingComponent, canActivate : [AuthGuardService] },
   { path: "leaderboard", component: LeaderboardComponent },

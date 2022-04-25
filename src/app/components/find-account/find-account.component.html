@@ -1,17 +1,23 @@
+<div class="banner">
+
 <p>find-account works!</p>
 
 <input type ="text" #email>
 <button (click)="findAccount(email.value)">Click Me</button>
 
-<!--
-<div *ngFor = "let u of _accountInfo">
-{{u.firstname}}
-{{u.lastname}}
-{{u.email}}
-{{u.password}}
-{{u.gender}}
+
+
+  <div *ngFor = "let u of _accountInfo">
+ Hello {{u.firstName}}    
+  {{u.firstName}}    
+ 
+  {{u.email}}  
+  {{u.accountPassword}}  
+
+  </div>
+
+  
 </div>
--->
 
 <!--
 
@@ -30,6 +36,7 @@
     "keyboardLayout": "QWERTY"
   }
 ]
+
 
 
 -->

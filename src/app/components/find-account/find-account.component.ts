@@ -1,3 +1,4 @@
+import { variable } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 
@@ -8,8 +9,24 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class FindAccountComponent implements OnInit {
 
+accountId ! : any;
+firstname !: any ;
+lastname !: any; 
+email  ! : any; 
+accountPassword !: any ;
+gender ! : any ;
+isAdmin !: any ;
+avatarLink !: any ;
+userElo !: any ;
+wpm !: any ;
+keyboardLayout !: any ; 
+
+
+
 _findaccount : UserService ;
-_accountInfo : any ;
+
+
+  _accountInfo : any 
 
   constructor(_findaccountRef : UserService) 
   {
@@ -20,15 +37,14 @@ _accountInfo : any ;
 
 
    findAccount(email : any) {
-    this._findaccount.findAccount(email).subscribe ( (data)=>{
+    this._findaccount.findAccount(email).subscribe ( (data )=>{
       if(data == null) {
         console.log('No account found');
         alert('No user information exist. Please try again');
       }
       else {
-        this._accountInfo = data; 
-       // console.log(this._accountInfo);
-        alert (data);
+        this._accountInfo = data ; 
+       console.log(this._accountInfo);
       }
     })
    }

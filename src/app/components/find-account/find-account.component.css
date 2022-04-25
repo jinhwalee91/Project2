@@ -1,0 +1,7 @@
+.banner {
+    background-image: url('../../../assets/img/lock.jpg');
+    height : 600px;
+    background-position: center bottom;
+    background-size: cover;
+    
+}
