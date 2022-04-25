@@ -27,7 +27,7 @@ _accountInfo : any ;
       }
       else {
         this._accountInfo = data; 
-       console.log(this._accountInfo);
+       // console.log(this._accountInfo);
         alert (data);
       }
     })
