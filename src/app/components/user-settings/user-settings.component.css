@@ -1,0 +1,35 @@
+
+#settings-container  {
+    margin-top: 50px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.699);
+    margin-bottom: 50px;
+    align-content: center;
+    border-radius: 10px;
+    border: 0.5px  ;
+    width: 500px;
+
+}
+
+h1{
+    text-align: center;
+    font-family: Oleo;
+    color : rgb(84, 194, 185)
+}
+
+@font-face {
+    font-family : Oleo;
+    src : url(../../../assets/font/PermanentMarker-Regular.ttf) format('truetype');
+}
+
+.Oleo {
+    font-family: Oleo;
+}
+
+
+ul.no-bullets {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+  }
+
