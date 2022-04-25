@@ -21,7 +21,6 @@ _userLogin : AuthGuardService ;
  _router : Router;
   static userDetails: any = [];
   static userLetterScores: any = [];
-  static userIsAdmin: boolean = false;
 
   constructor(_userLoginRef : AuthGuardService, private routerRef : Router) {
     this._userLogin = _userLoginRef
@@ -49,17 +48,10 @@ _userLogin : AuthGuardService ;
 
           // the following code should check if admin, and if true, gives access to admin component
           //doesn't actually work yet
-          this._userLogin.getUserDetails(email).subscribe( (data) => {LoginComponent.userDetails = data;
-            console.log(LoginComponent.userDetails) 
-          });
-          if(LoginComponent.userDetails.isAdmin == true){ 
-            alert('Welcome admin!');
-            LoginComponent.userIsAdmin = true;
-          }
-          else{
-            alert('Welcome user!');
-            LoginComponent.userIsAdmin = false;
-          }
+            this._userLogin.getUserDetails(email).subscribe( (data) => {LoginComponent.userDetails = data;
+              console.log(LoginComponent.userDetails) 
+            });
+
 
         }
 

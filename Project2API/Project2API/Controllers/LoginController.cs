@@ -223,7 +223,7 @@ namespace Project2API.Controllers
 
 
         [HttpPut]
-        [Route("ChangePassword")]
+        [Route("ChangePassword/{email}/{oldPassword}/{newPassword}")]
         public IActionResult ChangePassword(string email, string oldPassword, string newPassword)
         {
             try
@@ -249,6 +249,38 @@ namespace Project2API.Controllers
                 throw new Exception(ex.Message);
             }
 
+        }
+
+             [HttpGet]
+        [Route("GetPassword/{email}")]
+        public IActionResult GetPasswordByEmail(string email)
+        {
+            try
+            {
+                var getInfo = (from g in dbContext.LoginTables
+                               where g.Email == email
+                               select new
+                               {
+                                   g.FirstName,
+                                   g.LastName,
+                                   g.Email,
+                                   g.AccountPassword            
+                               }
+                               ).DefaultIfEmpty();
+                
+                if (getInfo != null)
+                {
+                    return Ok(getInfo);
+                }
+                else
+                {
+                    return NotFound("Email Not Found In System");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
 
@@ -277,6 +309,7 @@ namespace Project2API.Controllers
         {
 
             LoginTable newLogin = new LoginTable();
+            
             newLogin.FirstName = firstName;
             newLogin.LastName = lastName;
             newLogin.Email = email;
@@ -287,7 +320,11 @@ namespace Project2API.Controllers
             {
                 dbContext.LoginTables.Add(newLogin);
                 dbContext.SaveChanges();
-                return Created("", "Login Added Successfully");
+                int id = newLogin.AccountId;
+                var profile = new UserProfileController().CreateAccount(id);
+
+
+                return Created("", profile);
             }
             {
                 return Ok("Not Found / Error");

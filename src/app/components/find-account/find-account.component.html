@@ -1,35 +1,32 @@
 <div class="banner">
 <br><br>
+<h1>Forgot your password ?</h1>
+<br>
+
+  <div class="container text-center" id="findaccount-container">
+  
+    <h2 id="phrase">Don't worry we can get your password </h2>
   
 
+<form class="form-floating">
+  <input type="email" class="form-control" id="floatingInputValue" placeholder="name@example.com" value="name@example.com"  #email >
+  <label for="floatingInputValue">Enter your e-mail </label>
+</form>
 
-<div class="container text-center" id="findaccount-container">
-  <h1>Forgot your password ?</h1>
-<form > 
-<input type ="text" placeholder = "Enter your E-mail" #email>
-
-
-
-<div class="col-md-15">
-  <label for="validationDefault01" class="form-label" >E-mail</label>
-  <input type="text" required name ="email" placeholder ="Enter E-mail"  #email class="form-control" ngModel>
-  <button (click)="findAccount(email.value)"> submit </button>
+<div id="btn">
+  <button class="btn btn-warning" (click)="findAccount(email.value)">Find Password</button>
 </div>
 
-
-<div *ngFor = "let u of _accountInfo">
- Hello {{u.firstName}}    
-  {{u.firstName}}    
- 
-  {{u.email}}  
-  {{u.accountPassword}}  
-
+  <div id="output" *ngFor = "let u of _accountInfo">
+   <h3> Hi there! <br> {{u.firstName}} {{u.lastName}}, your password has been sent through your e-mail : <br> "{{u.email}}" </h3>
   </div>
+  
+     
 
-  </form>
 
 </div>
-  
+
+
 </div>
 
 <!--

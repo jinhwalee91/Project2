@@ -3,6 +3,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { first, map } from 'rxjs';
+import { LoginComponent } from '../components/login/login.component';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,21 @@ private _http : HttpClient;
    userLogin (email : string , password : any) {
       return this._http.get("https://localhost:7274/api/Login/Login/"+email+'/'+ password )
           
+   }
+
+   changePassword (email : string , password : any, newPassword : any) {
+    var body = {email, password, newPassword};
+    
+    return this._http.put("https://localhost:7274/api/Login/ChangePassword/"+email+'/'+ password+'/'+ newPassword, body, {responseType : 'text'} )
+      
+   }
+
+   changeAvatar (newAvatarLink : any) {
+    var id = LoginComponent.userDetails[0].accountId;
+    var body = {id, newAvatarLink};
+    
+    return this._http.put("https://localhost:7274/ChangeAvatar?userId="+ id + "&newAvatar=" + newAvatarLink, body )
+      
    }
 
 

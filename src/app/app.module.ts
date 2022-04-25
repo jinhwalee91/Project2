@@ -22,6 +22,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { AuthService } from './services/auth.service';
 import { SignoutComponent } from './components/signout/signout.component';
 import { UserSettingsComponent } from './components/user-settings/user-settings.component';
+import { FindAccountComponent } from './components/find-account/find-account.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,9 @@ import { UserSettingsComponent } from './components/user-settings/user-settings.
     UserProfileComponent,
     ViewLoginComponent,
     SignoutComponent,
-    UserSettingsComponent
+    UserSettingsComponent,
+    FindAccountComponent
+
   ],
   imports: [
     BrowserModule,

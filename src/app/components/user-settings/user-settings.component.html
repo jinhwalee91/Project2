@@ -1,52 +1,53 @@
-  <h1>Settings</h1>
-  <div class="container text-center" id="settings-container">
-  <form  #settingsform = "ngForm" >  
+<h1>Settings</h1>
+<div class="container text-center" id="settings-container">
+  <form>
+    <h2> Change Password </h2>
+    <div class="container text-center">
+    <form  class="row g-3" [formGroup]="changePasswordForm" (ngSubmit)="changePassword(email.value,password.value,newPassword.value)">
+      <div>
+        <label for="validationDefaultUsername" class="form-label">E-mail</label>
+        <div class="input-group">
+          <span class="input-group-text" id="inputGroupPrepend2">@</span>
   
-      <div class="col-md-15">
-        <label for="validationDefault01" class="form-label" >E-mail</label>
-        <input type="text" required #name = "ngModel" name ="email" placeholder ="Enter E-mail"  #email class="form-control" ngModel>
-        <span *ngIf = "name.invalid && name.touched" style="color : red" > Please enter valid e-mail </span> 
+          <input type="text" class="form-control"   aria-describedby="inputGroupPrepend2" formControlName="email" #email >
+        </div>
+    
       </div>
-      <br>
-      <div class="col-md-15">
-        <label for="validationDefault02" class="form-label">Password</label>
-        <input   type = "password" required #name = "ngModel" name ="password" placeholder="Enter password" #password class="form-control" ngModel >
-        <span *ngIf = "name.invalid && name.touched" style="color : red"> Please enter password </span>
+      <div>
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="password" #password >
+  
       </div>
-      <br>
-      <div class="col-md-15">
-        <label for="validationDefault04" class="form-label">New Email</label>
-        <input   type = "password" required #name = "ngModel" name ="newEmail" placeholder="Enter New Email" #password class="form-control" ngModel >
+      <div>
+        <label for="newPassword" class="form-label">New Password</label>
+        <input type="password" class="form-control" formControlName="newPassword" #newPassword >
+  
       </div>
-      <br>
-      <div class="col-md-15">
-        <label for="validationDefault03" class="form-label">New Password</label>
-        <input   type = "password" required #name = "ngModel" name ="newPassword" placeholder="Enter New Password" #password class="form-control" ngModel >
-      </div>
-      <br>
-      <div class="col-md-15">
-        <label for="validationDefault05" class="form-label">Avatar Link</label>
-        <input   type = "text" required #name = "ngModel" name ="avatarLink" placeholder="Enter Avatar Link" #avatarLink class="form-control" ngModel >
-      </div>
-      <br>
-      <div class="col-md-15">
-      <select class="form-select" formControlName="keyboardLayout" >
-        <option selected disabled value="">Choose...</option>
-        <option selected>Select keyboard layout</option>
-        <option >QWERTY</option>
-        <option >DVORAK</option>
-        <option >AZERTY</option>
-        <option >COLEMAK</option>
-        <option >Custom</option>
-      </select>
-    </div>
-  <br>
+
       <div class="col-12">
-        <button class="btn btn-primary" type="submit" >Submit Changes</button>
+  
+        <button class="btn btn-primary" [disabled]="!changePasswordForm.valid" >Submit</button>
+  
       </div>
-  <!--(click) = "changeUserInfo(email.value, password.value, newEmail.value, newPassword.value, avatarLink.value, keyboardLayout.value)"-->
-  </form>
-  </div>
-  
-  <router-outlet></router-outlet>
-  
+    </form>
+    <br>
+    <form>
+      <h2> Change Avatar </h2>
+      <div class="container text-center">
+      <form  class="row g-3" [formGroup]="changeAvatarForm" (ngSubmit)="changeAvatar(newAvatarLink.value)">
+        <div>
+          <label for="newAvatarLink" class="form-label">New Avatar Url</label>
+          <input type="text" class="form-control" formControlName="newAvatarLink" #newAvatarLink >
+    
+        </div>
+
+        <div class="col-12">
+    
+          <button class="btn btn-primary" [disabled]="!changeAvatarForm.valid" >Submit</button>
+    
+        </div>
+      </form>
+</div>
+
+
+<router-outlet></router-outlet>

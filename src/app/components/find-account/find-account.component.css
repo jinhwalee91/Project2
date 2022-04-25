@@ -10,4 +10,23 @@ h1{
     text-align: center;
     font-family : Oleo ;
     color : rgba(243, 147, 83, 0.795)
+    
+}
+
+h2{
+    font-family: Ubuntu;
+}
+
+.btn {
+    margin-top: 40px;
+}
+
+#phrase {
+    margin-bottom : 30px;
+    color :azure
+    
+}
+
+#output {
+    margin-top: 30px;
 }
