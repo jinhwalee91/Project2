@@ -63,6 +63,31 @@ namespace Project2API.Controllers
 
         }
 
+        [HttpPost]
+        [Route("Create/{id}")]
+        public IActionResult CreateAccount(int id)
+        {
+
+            UserProfile newUser = new UserProfile();
+            newUser.AccountId = id;
+            newUser.AvatarLink = "https://i.postimg.cc/Gmnz32cT/default.png";
+            newUser.UserElo = 1000;
+            newUser.Wpm = 0;
+            newUser.KeyboardLayout = "QWERTY";
+
+
+            if (newUser != null)
+            {
+                dbContext.UserProfiles.Add(newUser);
+                dbContext.SaveChanges();
+                return Created("", "Account Added Successfully");
+            }
+            else
+                return BadRequest("Something went wrong");
+
+        }
+
+
         [HttpPut]
         [Route("UpdateScore")]
         public IActionResult UpdateScore(int userId, int wpm, int elo)

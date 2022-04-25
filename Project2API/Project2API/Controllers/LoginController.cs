@@ -277,6 +277,7 @@ namespace Project2API.Controllers
         {
 
             LoginTable newLogin = new LoginTable();
+            
             newLogin.FirstName = firstName;
             newLogin.LastName = lastName;
             newLogin.Email = email;
@@ -287,7 +288,11 @@ namespace Project2API.Controllers
             {
                 dbContext.LoginTables.Add(newLogin);
                 dbContext.SaveChanges();
-                return Created("", "Login Added Successfully");
+                int id = newLogin.AccountId;
+                var profile = new UserProfileController().CreateAccount(id);
+
+
+                return Created("", profile);
             }
             {
                 return Ok("Not Found / Error");
