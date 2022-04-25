@@ -5,7 +5,7 @@ import { sample } from 'rxjs';
 import { GettextService } from 'src/app/services/gettext.service';
 import { LoginComponent } from '../login/login.component';
 import { UpdatescoreService } from 'src/app/services/updatescore.service';
-import { HashTable } from 'angular-hashtable';
+//import { HashTable } from 'angular-hashtable';
 
 @Component({
   selector: 'app-typing',
@@ -24,7 +24,36 @@ export class TypingComponent implements OnInit
   currentStyle = "correct";
   wpm = 0;
   mistypeCounter = 0;
-  letterScores = new HashTable<string, number>();
+  //letterScores = new HashTable<string, number>();
+  letterScores : number[] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  // letterScores = {
+  //   'a': 0,
+  //   'b': 0,
+  //   'c': 0,
+  //   'd': 0,
+  //   'e': 0,
+  //   'f': 0,
+  //   'g': 0,
+  //   'h': 0,
+  //   'i': 0,
+  //   'j': 0,
+  //   'k': 0,
+  //   'l': 0,
+  //   'm': 0,
+  //   'n': 0,
+  //   'o': 0,
+  //   'p': 0,
+  //   'q': 0,
+  //   'r': 0,
+  //   's': 0,
+  //   't': 0,
+  //   'u': 0,
+  //   'v': 0,
+  //   'w': 0,
+  //   'x': 0,
+  //   'y': 0,
+  //   'z': 0
+  // }
 
   time = 30;
   timerDisplay = true;
@@ -38,41 +67,12 @@ export class TypingComponent implements OnInit
   {
     this._textService = _textServ;
     this._updateService = _update;
-
-    this.letterScores.put('a', 0)
-    this.letterScores.put('b', 0)
-    this.letterScores.put('c', 0)
-    this.letterScores.put('d', 0)
-    this.letterScores.put('e', 0)
-    this.letterScores.put('f', 0)
-    this.letterScores.put('g', 0)
-    this.letterScores.put('h', 0)
-    this.letterScores.put('i', 0)
-    this.letterScores.put('j', 0)
-    this.letterScores.put('k', 0)
-    this.letterScores.put('l', 0)
-    this.letterScores.put('m', 0)
-    this.letterScores.put('n', 0)
-    this.letterScores.put('o', 0)
-    this.letterScores.put('p', 0)
-    this.letterScores.put('q', 0)
-    this.letterScores.put('r', 0)
-    this.letterScores.put('s', 0)
-    this.letterScores.put('t', 0)
-    this.letterScores.put('u', 0)
-    this.letterScores.put('v', 0)
-    this.letterScores.put('w', 0)
-    this.letterScores.put('x', 0)
-    this.letterScores.put('y', 0)
-    this.letterScores.put('z', 0)
   }
 
   ngOnInit(): void
   {
     this.getTextFromApi();
     
-    //console.log("asdfsadf " + typeof(this.letterScores))
-
     setInterval(() => {
       this.time--;
     }, 1000)
@@ -158,28 +158,27 @@ export class TypingComponent implements OnInit
   // change style based on whether the key pressed was correct or not
   checkKey(event:KeyboardEvent, index:number)
   {
-    var curLetterScore = this.letterScores.get(event.key.toString());
+    var letterCode = this.covertLetterToNumber(event.key.toString());
 
     // +1 to letter score when correct, -1 when incorrect
     if (event.key.toString() == this.sampleText[index])
     {
       this.currentStyle = 'correct';
-
-      if (curLetterScore < 100)
+      if (letterCode >= 0)
       {
-        this.letterScores.put(event.key.toString(), (curLetterScore + 1))
+        this.letterScores[letterCode] += 1
       }
     }
     else
     {
       this.currentStyle = 'incorrect';
       this.mistypeCounter++;
-
-      if (curLetterScore > 0)
+      if (letterCode >= 0)
       {
-        this.letterScores.put(event.key.toString(), (curLetterScore - 1))
+        this.letterScores[letterCode] -= 1
       }
     }
+    //this.covertLetterToNumber(event.key.toString(), score);
   }
 
   // do things here that need to happen after the timer runs out
@@ -190,18 +189,103 @@ export class TypingComponent implements OnInit
     this.wpm = this.inputText.split(" ").length;
     console.log("wpm is: " + this.wpm);
     console.log("mistypes: " + this.mistypeCounter);
+    console.log(this.letterScores);
 
     var fakeElo = (this.wpm / (this.mistypeCounter + 1)) * 1000;
 
-    // +1 to letter score when correct, -1 when incorrect
-
-    this._updateService.updateScore(LoginComponent.userDetails.accountId, this.wpm, fakeElo, this.letterScores).subscribe((data) => {
+    this._updateService.updateScore(LoginComponent.userDetails[0].accountId, this.wpm, fakeElo, this.letterScores).subscribe((data) => {
       console.log(data);
     }, (err) => {
       console.log(err);
     })
   }
     
-
+  covertLetterToNumber(letter : any)
+  {
+    letter = letter.toLowerCase();
+    switch(letter)
+    {
+      case 'a':
+        //this.letterScores['a'] += score;
+        return 0;
+      case 'b':
+        //this.letterScores['b'] += score;
+        return 1;
+      case 'c':
+        //this.letterScores['c'] += score;
+        return 2;
+      case 'd':
+        //this.letterScores['d'] += score;
+        return 3;
+      case 'e':
+        //this.letterScores['e'] += score;
+        return 4;
+      case 'f':
+        //this.letterScores['f'] += score;
+        return 5;
+      case 'g':
+        //this.letterScores['g'] += score;
+        return 6;
+      case 'h':
+        //this.letterScores['h'] += score;
+        return 7;
+      case 'i':
+        //this.letterScores['i'] += score;
+        return 6;
+      case 'j':
+        //this.letterScores['j'] += score;
+        return 9;
+      case 'k':
+        //this.letterScores['k'] += score;
+        return 10;
+      case 'l':
+        //this.letterScores['l'] += score;
+        return 11;
+      case 'm':
+        //this.letterScores['m'] += score;
+        return 12;
+      case 'n':
+        //this.letterScores['n'] += score;
+        return 13;
+      case 'o':
+        //this.letterScores['o'] += score;
+        return 14;
+      case 'p':
+        //this.letterScores['p'] += score;
+        return 15;
+      case 'q':
+        //this.letterScores['q'] += score;
+        return 16;
+      case 'r':
+        //this.letterScores['r'] += score;
+        return 17;
+      case 's':
+        //this.letterScores['s'] += score;
+        return 18;
+      case 't':
+        //this.letterScores['t'] += score;
+        return 19;
+      case 'u':
+        //this.letterScores['u'] += score;
+        return 20;
+      case 'v':
+        //this.letterScores['v'] += score;
+        return 21;
+      case 'w':
+        //this.letterScores['w'] += score;
+        return 22;
+      case 'x':
+        //this.letterScores['x'] += score;
+        return 23;
+      case 'y':
+        //this.letterScores['y'] += score;
+        return 24;
+      case 'z':
+        //this.letterScores['z'] += score;
+        return 25;
+      default:
+        return -1;    
+    }
+  }
     
 }
