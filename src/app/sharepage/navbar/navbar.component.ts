@@ -26,8 +26,8 @@ export class NavbarComponent implements OnInit {
     }  
   
    exit() {
-    window.location.reload();
-    localStorage.removeItem('token')
+   window.location.reload();
+   alert ("You are successufully signed out")
    }
 
     ngOnInit(): void {                                             

@@ -14,7 +14,7 @@ export class FindAccountComponent implements OnInit {
 _findaccount : UserService ;
 
 
-  _accountInfo : any 
+  _accountInfo : any
 
   constructor(_findaccountRef : UserService) 
   {
