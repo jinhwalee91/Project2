@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms"
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-user-settings',
@@ -51,7 +52,8 @@ export class UserSettingsComponent implements OnInit {
   }, (err) => {
     console.log(err);
   
-  })
+  });
+  LoginComponent.userDetails[0].avatarLink = newAvatarLink;
   }
 
 }

@@ -39,7 +39,7 @@ private _http : HttpClient;
     var id = LoginComponent.userDetails[0].accountId;
     var body = {id, newAvatarLink};
     
-    return this._http.put("https://localhost:7274/ChangeAvatar?userId="+ id + "&newAvatar=" + newAvatarLink, body, {responseType : 'text'} )
+    return this._http.put("https://localhost:7274/ChangeAvatar?userId="+ id + "&newAvatar=" + newAvatarLink, body )
       
    }
 

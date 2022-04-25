@@ -113,7 +113,7 @@ namespace Project2API.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("ChangeAvatar")]
         public IActionResult ChangeAvatar(int userId, string newAvatar)
         {
