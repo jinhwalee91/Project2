@@ -28,8 +28,19 @@ private _http : HttpClient;
    }
 
 
+   createAccount(firstname : any, lastname : any, email: any, password : any, gender: any)
+   {
+     var body = {firstname, lastname, email, password, gender};
+ 
+     return this._http.post("https://localhost:7274/api/Login/CreateLogin?firstName=" + firstname + "&lastName=" + lastname + "&email="+ email + "&password="+ password  +"&gender="+ gender, body, {responseType : 'text'}
+     
+     );
+
 
    }
+//                           https://localhost:7274/api/Login/CreateLogin?firstName=kelly&lastName=crook&email=kelly%40gmail.com&password=1234&gender=female
+
+    // https://localhost:44390/swagger/index.html
 
 
 
@@ -41,3 +52,4 @@ userSignup (firstName : string , lastName : string, email : string , password : 
 */ 
 
 
+}
