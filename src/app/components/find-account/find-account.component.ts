@@ -10,19 +10,6 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class FindAccountComponent implements OnInit {
 
-accountId ! : any;
-firstname !: any ;
-lastname !: any; 
-email  ! : any; 
-accountPassword !: any ;
-gender ! : any ;
-isAdmin !: any ;
-avatarLink !: any ;
-userElo !: any ;
-wpm !: any ;
-keyboardLayout !: any ; 
-
-
 
 _findaccount : UserService ;
 
@@ -45,7 +32,7 @@ _findaccount : UserService ;
       }
       else {
         this._accountInfo = data ; 
-       console.log(this._accountInfo);
+       console.log(data);
       }
     })
    }

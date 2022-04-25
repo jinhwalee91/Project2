@@ -48,12 +48,12 @@ ngOnInit(): void {
 
 
 signUp(firstname : any, lastname: any, email :any, password : any, gender : any){
-this._authService.createAccount(firstname , lastname, email, password, gender).subscribe((data) =>{
+this._authService.createAccount(firstname , lastname, email, password, gender).subscribe(
+  (data) =>{
   console.log(data);
   this.router.navigate(['login'])
 }, (err) => {
   console.log(err);
-
 })
 }
   
