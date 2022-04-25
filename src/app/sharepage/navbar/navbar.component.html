@@ -34,18 +34,7 @@
        </span>
 
   
-       <span *ngIf = "_userLogin.isUserLoggedin ; else login">  
-        <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active-link" (click)="exit()" >Sign Out</a>  
-      </li>
-      </span>
-   
-     
-    <ng-template #login>         
-        <li class="nav-item">
-          <a class="nav-link" id="login" routerLink="login" routerLinkActive="active-link" >Login</a>
-        </li>   
-    </ng-template>
+ 
      
 
        <span *ngIf = "_userLogin.isUserLoggedin ">
@@ -65,6 +54,19 @@
           <a class="nav-link" routerLink="admin" routerLinkActive="active-link" >Admin</a>
         </li>
       </span>
+
+      <span *ngIf = "_userLogin.isUserLoggedin ; else login">  
+        <li class="nav-item">
+        <a class="nav-link" routerLinek ="" routerLinkActive="active-link" (click)="exit()" >Sign Out</a>  
+      </li>
+      </span>
+   
+     
+    <ng-template #login>         
+        <li class="nav-item">
+          <a class="nav-link" id="login" routerLink="login" routerLinkActive="active-link" >Login</a>
+        </li>   
+    </ng-template>
 
 
       <!-- this line added for above reason -->
