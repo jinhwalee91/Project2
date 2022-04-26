@@ -2,10 +2,10 @@
 #leaderboardContainer {
   margin-top: 50px;
   padding: 10px;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.832);
   margin-bottom: 50px;
   border-radius: 5px;
-  border: 2px solid;
+  width: 800px;
 }
 
 
@@ -35,8 +35,27 @@ tr:nth-child(even) {
 }
 
 h1 {
+  margin-bottom: 20px;
   text-align: center;
+  color : rgba(195, 102, 9, 0.863);
+  font-family: Oleo;
 }
 h2 {
   text-align: center;
+  color : rgba(255, 217, 0, 0.815);
+  font-family: Ubuntu;
+
+}
+
+
+.banner {
+  background-image: url('../../../assets/img/rank2.jpg');
+  height : 600px;
+  background-position: center;
+  background-size :cover;
+  
+}
+
+.word-block {
+  margin-top : 40px
 }
