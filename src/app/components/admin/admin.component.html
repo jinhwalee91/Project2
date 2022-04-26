@@ -36,7 +36,7 @@ but please keep this code just in case we need it later -->
       </tr>
       <tr *ngFor = "let u of allUser">
         <td> <img src = {{u.avatarLink}} alt = "Avatar" class="profilePic"> <br>
-          <button class="btn btn-primary">Delete User</button></td>
+          <button class="btn btn-primary" (click) ="deleteUser(u.accountId)">Delete User</button></td>
         <td> {{u.accountId}} </td>
         <td> {{u.firstName}} </td>
         <td> {{u.lastName}} </td>
