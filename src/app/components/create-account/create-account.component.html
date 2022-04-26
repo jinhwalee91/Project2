@@ -6,13 +6,13 @@
   <form  class="row g-3" [formGroup]="signupForm" (ngSubmit)="signUp(firstname.value, lastname.value, email.value,password.value,gender.value)">
     <div> 
       <label for="validationDefault01" class="form-label" >First name</label>
-      <input type="text" class="form-control" formControlName="firstname" #firstname >
+      <input type="text" class="form-control" formControlName="firstname" #firstname placeholder="John" >
     </div>
 <br>
 
     <div>
       <label for="validationDefault02" class="form-label">Last name</label>
-      <input type="text" class="form-control" formControlName="lastname" #lastname >
+      <input type="text" class="form-control" formControlName="lastname" #lastname placeholder="Smith" >
     </div>
    
     <div>
@@ -20,13 +20,13 @@
       <div class="input-group">
         <span class="input-group-text" id="inputGroupPrepend2">@</span>
 
-        <input type="text" class="form-control"   aria-describedby="inputGroupPrepend2" formControlName="email" #email >
+        <input type="text" class="form-control"   aria-describedby="inputGroupPrepend2" formControlName="email" #email placeholder="john@example.com">
       </div>
   
     </div>
     <div>
       <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" formControlName="password" #password >
+      <input type="password" class="form-control" formControlName="password" #password placeholder="password(mininmum 8 characters)" >
 
     </div>
 

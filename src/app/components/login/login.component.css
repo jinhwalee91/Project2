@@ -42,8 +42,26 @@ h1{
 
 
 ul.no-bullets {
-    list-style-type: none; /* Remove bullets */
+    list-style-type : none; /* Remove bullets */
     padding: 0; /* Remove padding */
     margin: 0; /* Remove margins */
+    color :rgb(84, 194, 185)
   }
 
+  #sentence1 {
+      color : black;
+      text-decoration: none;
+  }
+
+  #sentence2 {
+    color : black;
+    text-decoration: none;
+  }
+
+  #sentence1:hover {
+      color : rgba(255, 0, 0, 0.685);
+  }
+
+  #sentence2:hover {
+    color : rgba(0, 0, 255, 0.685)
+}
