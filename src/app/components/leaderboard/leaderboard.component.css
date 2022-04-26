@@ -37,8 +37,9 @@ tr:nth-child(even) {
 h1 {
   margin-bottom: 20px;
   text-align: center;
-  color : rgba(195, 102, 9, 0.863);
+  color : rgba(195, 102, 9);
   font-family: Oleo;
+  text-shadow: 4px 4px 1px #000000;
 }
 h2 {
   text-align: center;
