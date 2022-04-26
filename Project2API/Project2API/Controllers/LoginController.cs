@@ -11,6 +11,25 @@ namespace Project2API.Controllers
         toptypersDBContext dbContext = new toptypersDBContext();
 
         [HttpGet]
+        [Route("topFive")]
+        public IActionResult GetTopFive()
+        {
+            var topFive = (from e in dbContext.LoginTables
+                          join x in dbContext.UserProfiles on e.AccountId equals x.AccountId into accGroup
+                          from x in accGroup.DefaultIfEmpty()
+                          orderby x.UserElo descending
+                          select new { 
+                              e.FirstName,
+                              e.LastName,
+                              x.AvatarLink,
+                              x.UserElo,
+                              x.Wpm
+                          }).Take(5);
+            return Ok(topFive);
+
+        }
+
+        [HttpGet]
         [Route("elist")]
         public IActionResult GetLoginList()
         {

@@ -18,6 +18,10 @@ private _http : HttpClient;
    }
 
    
+   GetTopFive () {
+    return this._http.get("https://localhost:7274/api/Login/topFive");
+   }
+
    getAllUsers () {
     return this._http.get("https://localhost:7274/api/Login/elist");
    }

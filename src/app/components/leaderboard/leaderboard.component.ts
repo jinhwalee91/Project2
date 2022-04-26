@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-leaderboard',
@@ -7,19 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeaderboardComponent implements OnInit {
 
-  constructor() { }
+  _authService : AuthService ;
+  leaderboardList : any = [];
+  constructor(_authServiceRef : AuthService) {this._authService = _authServiceRef;}
+  GetTopFive()
+  {
+  this._authService.GetTopFive().subscribe( (data) => {this.leaderboardList = data;
+    console.log(this.leaderboardList) 
+   })
+  }
 
   // to do: http request to GET a list of users with top five ELOrank scores, in order of ELOrank
 
-  leaderboardList = [
-    { userName: 'Juliet', ELOrank: '2,119', WPM: '91' },
-    { userName: 'Felix', ELOrank: '2,105', WPM: '90' },
-    { userName: 'Mario', ELOrank: '1,997', WPM: '90' },
-    { userName: 'Robin', ELOrank: '1,976', WPM: '90' },
-    { userName: 'Fiona', ELOrank: '1,958', WPM: '89' }
-  ]
 
   ngOnInit(): void {
+    this.GetTopFive();
   }
 
 }
