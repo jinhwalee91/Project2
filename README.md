@@ -1,6 +1,8 @@
 # TopTyper
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.2.
+The funnest way to practice typing online. Users can create a profile, practice touch typing, and keep track of their mistakes and words per minute on their profile. 
+The leaderboard displays the best typers on the site, to encourage competitive improvement. The app uses Angular and RestAPI, and data is maintained in an Azure SQL server.
+
 
 ## Development server
 
@@ -24,4 +26,5 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 ## Further help
 
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.2.
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
