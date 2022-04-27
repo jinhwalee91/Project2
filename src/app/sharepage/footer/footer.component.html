@@ -10,9 +10,17 @@
          <div class ="col-lg-4">
              
              <a routerLink = "home" style = "color: rgba(0, 0, 0, 0.377);">Home</a>
+
+             <span *ngIf = "!(_userLogin.isUserLoggedin)">
              <a routerLink = "login" style = "color:  rgba(0, 0, 0, 0.377);">Login</a>
+             </span>
+             
+             <span *ngIf = "!(_userLogin.isUserLoggedin) ">
              <a routerLink = "createAccount" style = "color: rgba(0, 0, 0, 0.377);">create Account</a>
-         </div>
+            </span>
+
+
+            </div>
          <!-- Social --> 
          <div class ="col-lg-2">
              <a href="https://youtu.be/MKT6Uhk5-Iw" target ="_blank" ><i class="bi bi-youtube" style = "color: red;"></i></a>
