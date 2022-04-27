@@ -33,7 +33,7 @@ To run the program, simply double click START.bat in the root directory. Angular
 
 ## Contributors
 
-David Acuff
-Shane LeGrand
-Jinhwa Lee
-Justin Ulassin
+* David Acuff
+* Shane LeGrand
+* Jinhwa Lee
+* Justin Ulassin
