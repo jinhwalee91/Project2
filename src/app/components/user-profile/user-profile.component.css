@@ -78,5 +78,6 @@ td {
 
 h1{
   font-family: Oleo;
-  color : rgb(84, 194, 185)
+  color : rgb(84, 194, 185);
+  text-shadow: 4px 4px 1px #000000;
 }
