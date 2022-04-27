@@ -19,7 +19,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * Allows new users to join the site with email and password.
 * Provides users with a component for touch-typing practice.
 * Keeps track of the user's typing mistakes and words per minute, viewable on the user profile.
-* Allows uers to upload a custom avatar for their profile.
+* Allows users to upload a custom avatar for their profile.
 * Offers a leaderboard of the best typers on the site.
 * Allows admins to view and delete user profiles.
 * Stores data on a SQL database through HTTP requests.
