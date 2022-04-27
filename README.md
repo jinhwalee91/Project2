@@ -30,3 +30,10 @@ To-do list:
 ## Getting Started
 
 To run the program, simply double click START.bat in the root directory. Angular and Swagger API will run in separate Command Prompt windows and the web page will open automatically in your default browser. It may take a few seconds to load; please be patient, and refresh the page if necessary.
+
+## Contributors
+
+David Acuff
+Shane LeGrand
+Jinhwa Lee
+Justin Ulassin
