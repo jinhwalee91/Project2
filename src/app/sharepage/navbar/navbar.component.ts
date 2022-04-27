@@ -24,11 +24,21 @@ export class NavbarComponent implements OnInit {
       this._userLogin = _userLoginRef    ;
       this._router = routerRef
     }  
-  
+  /*
    exit() {
    window.location.reload();
    alert ("You are successufully signed out")
    }
+*/
+
+exit():void{
+  this._userLogin.isUserLoggedin = false ;
+  this._router.navigateByUrl('login');
+}
+
+   logOut():void {
+    localStorage.removeItem('currentUser');
+  }
 
     ngOnInit(): void {                                             
       
