@@ -15,6 +15,7 @@
             <div id="finished" *ngIf="!timerDisplay">
                 <div>Words Per Minute: {{wpm * 2}}</div>
                 <div>Mistakes: {{mistypeCounter}}</div>
+                <div>Total Score: {{fakeElo}}</div>
             </div>
         </div> 
         <ng-template #elseBlock>Time left: 0</ng-template>
