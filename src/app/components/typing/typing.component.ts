@@ -24,6 +24,8 @@ export class TypingComponent implements OnInit
   currentStyle = "correct";
   wpm = 0;
   mistypeCounter = 0;
+  fakeElo = 0;
+  textLoaded = false;
   //letterScores = new HashTable<string, number>();
   letterScores : number[] = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
   // letterScores = {
@@ -74,7 +76,10 @@ export class TypingComponent implements OnInit
     this.getTextFromApi();
     
     setInterval(() => {
-      this.time--;
+      if (this.textLoaded == true)
+      {
+        this.time--;
+      }
     }, 1000)
 
     // call the timeUp function after the timer has reached 0
@@ -119,6 +124,8 @@ export class TypingComponent implements OnInit
 
     // and then get its children (every letter separated in their own tags)
     this.children = this.outputParagraph.children;
+
+    this.textLoaded = true;
   }
 
   @HostListener('window:keyup', ['$event'])
@@ -191,9 +198,9 @@ export class TypingComponent implements OnInit
     console.log("mistypes: " + this.mistypeCounter);
     console.log(this.letterScores);
 
-    var fakeElo = (this.wpm / (this.mistypeCounter + 1)) * 1000;
+    this.fakeElo = Math.floor(((this.wpm * 2) / (this.mistypeCounter + 1)) * 1000);
 
-    this._updateService.updateScore(LoginComponent.userDetails[0].accountId, this.wpm, fakeElo, this.letterScores).subscribe((data) => {
+    this._updateService.updateScore(LoginComponent.userDetails[0].accountId, this.wpm*2, this.fakeElo, this.letterScores).subscribe((data) => {
       console.log(data);
     }, (err) => {
       console.log(err);
