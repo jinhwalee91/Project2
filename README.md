@@ -1,6 +1,8 @@
 # TopTyper
 
+
 The funnest way to practice typing online. Users can create a profile, practice touch typing, and keep track of their mistakes and words per minute on their profile. The leaderboard displays the best typers on the site, to encourage competitive improvement. The app uses Angular and RestAPI, and data is maintained in an Azure SQL server.
+
 
 ## Technologies Used
 
