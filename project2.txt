@@ -1,0 +1,19 @@
+p2project.database.windows.net
+project2
+Password@4567
+
+
+Server=tcp:p2project.database.windows.net,1433;Initial Catalog=toptypersDB;Persist Security Info=False;User 
+ID=project2;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+
+
+
+https://localhost:7274/api/Login/elist     // Get all user list 
+https://localhost:7274/api/Login/Login By Email?email=shane%40gmail.com
+https://localhost:7274/api/Login/Login%20By%20Email?email=shane%40gmail.com
+
+https://localhost:7274/api/Login/CreateLogin?firstName=kelly&lastName=crook&email=kelly%40gmail.com&password=1234&gender=female
+"https://localhost:7274/api/Login/CreateLogin?" + firstName +'&' + lastName +'&'+ email +'&' + password +'&'+ gender
+
+
+('Michelle' , 'Crook', 'michelle123','1234','Female','true')
